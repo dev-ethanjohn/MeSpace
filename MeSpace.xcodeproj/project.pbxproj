@@ -51,8 +51,12 @@
 		4C8AB7DF2C3FB34200E3B190 /* MeSpace */ = {
 			isa = PBXGroup;
 			children = (
-				4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */,
-				4C8AB7E22C3FB34200E3B190 /* ContentView.swift */,
+				4C8AB7EE2C3FF89200E3B190 /* App */,
+				4C8AB7EF2C3FF8A000E3B190 /* Core */,
+				4C8AB7F22C3FF8B500E3B190 /* Extensions */,
+				4C8AB7F02C3FF8AA00E3B190 /* Model */,
+				4C8AB7F32C3FF8C200E3B190 /* Services */,
+				4C8AB7F12C3FF8B000E3B190 /* Utils */,
 				4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */,
 				4C8AB7E62C3FB34500E3B190 /* Preview Content */,
 			);
@@ -65,6 +69,114 @@
 				4C8AB7E72C3FB34500E3B190 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C8AB7EE2C3FF89200E3B190 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4C8AB7EF2C3FF8A000E3B190 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4C8AB7FA2C4000C500E3B190 /* Authentication */,
+				4C8AB7F72C4000A400E3B190 /* Components */,
+				4C8AB7F82C4000AA00E3B190 /* CreatePost */,
+				4C8AB7FB2C4000EC00E3B190 /* Explore */,
+				4C8AB7F62C40009C00E3B190 /* Profile */,
+				4C8AB7F92C4000B700E3B190 /* Message */,
+				4C8AB7F52C40009100E3B190 /* Root */,
+				4C8AB7F42C40008B00E3B190 /* TabBar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4C8AB7F02C3FF8AA00E3B190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C8AB7F12C3FF8B000E3B190 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4C8AB7F22C3FF8B500E3B190 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C8AB7F32C3FF8C200E3B190 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4C8AB7F42C40008B00E3B190 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		4C8AB7F52C40009100E3B190 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4C8AB7E22C3FB34200E3B190 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		4C8AB7F62C40009C00E3B190 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4C8AB7F72C4000A400E3B190 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4C8AB7F82C4000AA00E3B190 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
+		4C8AB7F92C4000B700E3B190 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		4C8AB7FA2C4000C500E3B190 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4C8AB7FB2C4000EC00E3B190 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
