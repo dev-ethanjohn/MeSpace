@@ -11,6 +11,11 @@
 		4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E22C3FB34200E3B190 /* ContentView.swift */; };
 		4C8AB7E52C3FB34500E3B190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */; };
 		4C8AB7E82C3FB34500E3B190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E72C3FB34500E3B190 /* Preview Assets.xcassets */; };
+		4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB8072C400D8300E3B190 /* LogInView.swift */; };
+		4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94882C41015000EA1C40 /* LoginHeaderView.swift */; };
+		4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */; };
+		4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */; };
+		4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		4C8AB7E22C3FB34200E3B190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C8AB7E72C3FB34500E3B190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C8AB8072C400D8300E3B190 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		4CBB94882C41015000EA1C40 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
+		4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavAndActionsView.swift; sourceTree = "<group>"; };
+		4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationLinkView.swift; sourceTree = "<group>"; };
+		4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +178,8 @@
 		4C8AB7FA2C4000C500E3B190 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				4C8AB7FE2C400BB900E3B190 /* Login */,
+				4C8AB7FF2C400BBF00E3B190 /* Registration */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -177,6 +189,81 @@
 			children = (
 			);
 			path = Explore;
+			sourceTree = "<group>";
+		};
+		4C8AB7FE2C400BB900E3B190 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4C8AB8002C400D1700E3B190 /* Views */,
+				4C8AB8012C400D1C00E3B190 /* ViewModels */,
+				4C8AB8022C400D2400E3B190 /* Models */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4C8AB7FF2C400BBF00E3B190 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				4C8AB8062C400D6200E3B190 /* Views */,
+				4C8AB8042C400D4500E3B190 /* ViewModels */,
+				4C8AB8032C400D4100E3B190 /* Models */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		4C8AB8002C400D1700E3B190 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CBB94872C40E66400EA1C40 /* SubViews */,
+				4C8AB8072C400D8300E3B190 /* LogInView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C8AB8012C400D1C00E3B190 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4C8AB8022C400D2400E3B190 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C8AB8032C400D4100E3B190 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C8AB8042C400D4500E3B190 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4C8AB8062C400D6200E3B190 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4CBB94872C40E66400EA1C40 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4CBB94882C41015000EA1C40 /* LoginHeaderView.swift */,
+				4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */,
+				4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */,
+				4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,8 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,
+				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
+				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
+				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
+				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
