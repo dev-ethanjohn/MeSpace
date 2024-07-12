@@ -7,6 +7,8 @@ struct RegistrationFormView: View {
     @State private var username = ""
     @State private var showingAlert = false
     
+    @State private var showMeSpaceTabView = false
+    
     var body: some View {
         VStack {
             RegistrationHeaderView()
@@ -17,7 +19,8 @@ struct RegistrationFormView: View {
             InputFieldView(placeholder: "username", text: $username)
             
             Button("Join MeSpace now!") {
-                showingAlert = true
+                //                showingAlert = true
+                showMeSpaceTabView = true
             }
             .font(.subheadline)
             .fontWeight(.semibold)
@@ -33,6 +36,9 @@ struct RegistrationFormView: View {
         .padding(.horizontal)
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Registration Error"), message: Text("An unknown error occurred"), dismissButton: .default(Text("OK")))
+        }
+        .fullScreenCover(isPresented: $showMeSpaceTabView) {
+            MeSpaceTabView()
         }
     }
 }
