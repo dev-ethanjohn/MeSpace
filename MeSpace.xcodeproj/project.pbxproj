@@ -22,6 +22,8 @@
 		4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94972C41490F00EA1C40 /* RegistrationFormView.swift */; };
 		4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94992C41492A00EA1C40 /* RegistrationHeaderView.swift */; };
 		4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */; };
+		4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */; };
+		4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		4CBB94972C41490F00EA1C40 /* RegistrationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormView.swift; sourceTree = "<group>"; };
 		4CBB94992C41492A00EA1C40 /* RegistrationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHeaderView.swift; sourceTree = "<group>"; };
 		4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPromptView.swift; sourceTree = "<group>"; };
+		4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceTabView.swift; sourceTree = "<group>"; };
+		4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 		4C8AB7F42C40008B00E3B190 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */,
+				4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -373,6 +379,8 @@
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
+				4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */,
+				4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */,
 				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
 				4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */,
 			);
