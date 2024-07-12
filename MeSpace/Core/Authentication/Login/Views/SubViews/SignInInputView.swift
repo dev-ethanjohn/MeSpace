@@ -1,10 +1,3 @@
-//
-//  SignInInputView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
 import SwiftUI
 
 struct SignInInputView: View {
@@ -46,7 +39,9 @@ struct SignInInputView: View {
     }
 }
 
-#Preview {
-    SignInInputView(email: .constant("user@example.com"), password: .constant("password123"))
-        .previewLayout(.sizeThatFits)
+struct SignInInputView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInInputView(email: .constant("user@example.com"), password: .constant("password123"))
+            .previewLayout(.sizeThatFits)
+    }
 }

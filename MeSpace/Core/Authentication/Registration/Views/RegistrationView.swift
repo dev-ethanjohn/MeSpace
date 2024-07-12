@@ -1,15 +1,24 @@
-//
-//  RegistrationView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
 import SwiftUI
 
 struct RegistrationView: View {
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            BackgroundView()
+            
+            VStack {
+                ScrollView {
+                    RegistrationFormView()
+                }
+                .padding()
+                
+                Spacer()
+                
+                SignInPromptView(dismiss: dismiss)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height)
     }
 }
 

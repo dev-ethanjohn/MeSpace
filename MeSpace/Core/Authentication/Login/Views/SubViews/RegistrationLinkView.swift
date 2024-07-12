@@ -1,11 +1,3 @@
-//
-//  RegistrationLinkView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
-
 import SwiftUI
 
 struct RegistrationLinkView: View {

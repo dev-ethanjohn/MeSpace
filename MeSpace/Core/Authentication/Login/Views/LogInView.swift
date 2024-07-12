@@ -1,11 +1,4 @@
 //
-//  LogInView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/11/24.
-//
-
-
 
 import SwiftUI
 

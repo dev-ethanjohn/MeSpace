@@ -16,6 +16,12 @@
 		4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */; };
 		4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */; };
 		4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */; };
+		4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94902C41472400EA1C40 /* RegistrationView.swift */; };
+		4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94932C4147CB00EA1C40 /* BackgroundView.swift */; };
+		4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94952C41487B00EA1C40 /* InputFieldView.swift */; };
+		4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94972C41490F00EA1C40 /* RegistrationFormView.swift */; };
+		4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94992C41492A00EA1C40 /* RegistrationHeaderView.swift */; };
+		4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavAndActionsView.swift; sourceTree = "<group>"; };
 		4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationLinkView.swift; sourceTree = "<group>"; };
 		4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInputView.swift; sourceTree = "<group>"; };
+		4CBB94902C41472400EA1C40 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		4CBB94932C4147CB00EA1C40 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		4CBB94952C41487B00EA1C40 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		4CBB94972C41490F00EA1C40 /* RegistrationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormView.swift; sourceTree = "<group>"; };
+		4CBB94992C41492A00EA1C40 /* RegistrationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHeaderView.swift; sourceTree = "<group>"; };
+		4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPromptView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +263,8 @@
 		4C8AB8062C400D6200E3B190 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CBB94922C41473300EA1C40 /* SubViews */,
+				4CBB94902C41472400EA1C40 /* RegistrationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,6 +276,18 @@
 				4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */,
 				4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */,
 				4CBB948E2C4101D100EA1C40 /* SignInInputView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		4CBB94922C41473300EA1C40 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4CBB94932C4147CB00EA1C40 /* BackgroundView.swift */,
+				4CBB94952C41487B00EA1C40 /* InputFieldView.swift */,
+				4CBB94972C41490F00EA1C40 /* RegistrationFormView.swift */,
+				4CBB94992C41492A00EA1C40 /* RegistrationHeaderView.swift */,
+				4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -336,13 +362,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
 				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,
+				4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */,
 				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
 				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
+				4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */,
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
+				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
+				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
+				4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

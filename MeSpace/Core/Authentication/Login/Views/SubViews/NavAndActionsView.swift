@@ -1,12 +1,3 @@
-//
-//  NavAndActionsView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct NavigationAndActionsView: View {

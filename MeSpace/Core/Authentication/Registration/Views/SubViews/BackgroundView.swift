@@ -1,17 +1,24 @@
-//
-//  BackgroundView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
 import SwiftUI
 
 struct BackgroundView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Rectangle()
+            .fill(Material.thin)
+            .overlay(Color.white.opacity(0.2))
+            .ignoresSafeArea()
+            .onTapGesture {
+                hideKeyboard()
+            }
     }
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
 
 #Preview {
     BackgroundView()
