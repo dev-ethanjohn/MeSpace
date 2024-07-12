@@ -7,6 +7,7 @@ struct RegistrationLinkView: View {
 
         
         Button(action: {
+            
             showRegistration = true
         }) {
             HStack(spacing: 3) {
@@ -21,6 +22,10 @@ struct RegistrationLinkView: View {
     }
 }
 
-#Preview {
-    RegistrationLinkView(showRegistration: .constant(false))
+
+
+struct RegistrationLinkView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationLinkView(showRegistration: .constant(false))
+    }
 }

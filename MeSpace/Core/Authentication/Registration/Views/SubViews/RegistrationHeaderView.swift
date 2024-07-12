@@ -25,7 +25,11 @@ struct RegistrationHeaderView: View {
     }
 }
 
-#Preview {
-    RegistrationHeaderView()
+
+struct RegistrationHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationHeaderView()
+    }
 }
+
 

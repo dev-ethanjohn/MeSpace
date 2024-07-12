@@ -30,6 +30,13 @@ struct LoginView: View {
         }
         .padding(.horizontal, 12)
         .background(Color(.systemGray) .opacity(0.2))
+        .sheet(isPresented: $showRegistration) {
+            RegistrationView()
+                .presentationDetents([.fraction(0.82)])
+                .presentationCornerRadius(32)
+                .presentationBackground(.clear)
+                
+        }
         
     }
     
@@ -57,9 +64,14 @@ struct LoginView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        LoginView(email: "mespace@gmail.com", password: "123456")
+
+
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            LoginView(email: "mespace@gmail.com", password: "123456")
+        }
     }
 }
 

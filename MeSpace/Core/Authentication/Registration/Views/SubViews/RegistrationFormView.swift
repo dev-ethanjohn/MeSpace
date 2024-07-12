@@ -31,14 +31,14 @@ struct RegistrationFormView: View {
         }
         .padding(.vertical, 16)
         .padding(.horizontal)
-        .background(.white)
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Registration Error"), message: Text("An unknown error occurred"), dismissButton: .default(Text("OK")))
         }
     }
 }
 
-#Preview {
-    RegistrationFormView()
+struct RegistrationFormView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationFormView()
+    }
 }
-

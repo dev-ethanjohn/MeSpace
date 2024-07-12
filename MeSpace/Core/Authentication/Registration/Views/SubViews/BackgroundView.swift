@@ -20,6 +20,8 @@ extension View {
 }
 #endif
 
-#Preview {
-    BackgroundView()
+struct BackgroundView_Previews: PreviewProvider {
+    static var previews: some View {
+        BackgroundView()
+    }
 }
