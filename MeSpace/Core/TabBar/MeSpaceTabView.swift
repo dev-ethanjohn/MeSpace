@@ -41,7 +41,7 @@ struct MeSpaceTabView: View {
             VStack {
                 Spacer()
 
-                CustomTabView(tabSelection: $selectedTab, isProfileSelected: $isProfileSelected, profileImage: Image("mespace_logo"))
+                CustomTabView(tabSelection: $selectedTab, isProfileSelected: $isProfileSelected, profileImage: Image("ej"))
                     .edgesIgnoringSafeArea(.bottom)
                     .frame(maxWidth: .infinity)
                 

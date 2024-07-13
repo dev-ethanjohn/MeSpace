@@ -1,18 +1,27 @@
-//
-//  ProfileHeaderView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/13/24.
-//
+
 
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    let progress: CGFloat
+    let imageHeight: CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .top) {
+            BackgroundImageView(progress: progress, imageHeight: imageHeight)
+            Capsule()
+                .fill(Color.white.opacity(0.2))
+                .frame(width: 32, height: 4)
+                .padding(.top, 8)
+            MainProfileHeaderInfoView()
+        }
+        .frame(height: imageHeight)
     }
 }
 
-#Preview {
-    ProfileHeaderView()
+struct ProfileHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileHeaderView(progress: 0.5, imageHeight: 140)
+    }
 }
+

@@ -4,15 +4,27 @@
 //
 //  Created by Ethan John Paguntalan on 7/13/24.
 //
+//
+//  ProfileFilter.swift
+//  MeSpace
+//
+//  Created by Ethan John Paguntalan on 7/2/24.
+//
 
-import SwiftUI
+import Foundation
 
-struct TabBarContentFilter: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+enum TabBarContentFilter: Int, CaseIterable, Identifiable {
+    case posts
+    case collects
+    
+    var title: String {
+        switch self {
+        case .posts:
+            return "Posts"
+        case .collects:
+            return "Collects"
+        }
     }
-}
-
-#Preview {
-    TabBarContentFilter()
+    
+    var id: Int { return self.rawValue}
 }

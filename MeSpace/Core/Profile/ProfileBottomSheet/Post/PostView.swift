@@ -9,10 +9,20 @@ import SwiftUI
 
 struct PostView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            PostContentView()
+            SingleMediaPost(imageName: "happy_birthday")
+            PostEngagementView()
+        }
+        .padding(.bottom, 8)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 24))
     }
 }
 
-#Preview {
-    PostView()
+struct PostView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostView()
+    }
 }
+
