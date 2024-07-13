@@ -26,6 +26,7 @@
 		4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */; };
 		4CE1AA622C4240A200FE5594 /* CustomSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */; };
 		4CE1AA652C42410300FE5594 /* CustomSpaceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */; };
+		4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA662C424FF200FE5594 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceView.swift; sourceTree = "<group>"; };
 		4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceHeader.swift; sourceTree = "<group>"; };
+		4CE1AA662C424FF200FE5594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		4C8AB7F62C40009C00E3B190 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4CE1AA662C424FF200FE5594 /* ProfileView.swift */,
 				4CE1AA602C422BF100FE5594 /* Canvas */,
 			);
 			path = Profile;
@@ -400,6 +403,7 @@
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
 				4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */,
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
+				4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
 				4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */,

@@ -62,16 +62,6 @@ struct ExploreView: View {
     }
 }
 
-struct ProfileView: View {
-    var body: some View {
-        ZStack {
-            Color.white
-                .ignoresSafeArea()
-            Text("Profile")
-        }
-        
-    }
-}
 
 struct MeSpaceTabView_Previews: PreviewProvider {
     static var previews: some View {

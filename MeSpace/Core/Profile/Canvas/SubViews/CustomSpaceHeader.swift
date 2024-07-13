@@ -9,6 +9,9 @@ import SwiftUI
 
 
 struct CustomSpaceHeader: View {
+    
+    @State private var showMeLoginView = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,8 +28,7 @@ struct CustomSpaceHeader: View {
                 Spacer()
                 
                 Button(action: {
-                    
-                    
+                    showMeLoginView = true
                 }, label: {
                     Image(systemName: "line.3.horizontal")
                         .padding()
@@ -42,8 +44,12 @@ struct CustomSpaceHeader: View {
         .padding(.bottom, 20)
         .padding(.top, getSafeAreaTopPadding())
         .background(Color(.white))
+        .fullScreenCover(isPresented: $showMeLoginView) {
+            NavigationStack {
+                LoginView(email: "", password: "")
+            }
+        }
     }
-    
     
     // Function to get the top safe area padding
     private func getSafeAreaTopPadding() -> CGFloat {
@@ -53,7 +59,6 @@ struct CustomSpaceHeader: View {
         return window?.safeAreaInsets.top ?? 0
     }
 }
-
 
 struct CanvasHeaderView_Previews: PreviewProvider {
     static var previews: some View {
