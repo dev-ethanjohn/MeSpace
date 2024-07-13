@@ -24,6 +24,8 @@
 		4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */; };
 		4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */; };
 		4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */; };
+		4CE1AA622C4240A200FE5594 /* CustomSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */; };
+		4CE1AA652C42410300FE5594 /* CustomSpaceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPromptView.swift; sourceTree = "<group>"; };
 		4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceTabView.swift; sourceTree = "<group>"; };
 		4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceView.swift; sourceTree = "<group>"; };
+		4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 		4C8AB7F62C40009C00E3B190 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4CE1AA602C422BF100FE5594 /* Canvas */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -298,6 +303,23 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		4CE1AA602C422BF100FE5594 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */,
+				4CE1AA632C4240E300FE5594 /* SubViews */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		4CE1AA632C4240E300FE5594 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -370,6 +392,7 @@
 			files = (
 				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
 				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,
+				4CE1AA622C4240A200FE5594 /* CustomSpaceView.swift in Sources */,
 				4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */,
 				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
@@ -383,6 +406,7 @@
 				4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */,
 				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
 				4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */,
+				4CE1AA652C42410300FE5594 /* CustomSpaceHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
