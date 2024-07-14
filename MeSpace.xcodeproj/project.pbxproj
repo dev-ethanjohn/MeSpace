@@ -41,6 +41,7 @@
 		4CE1AA892C425FD600FE5594 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA882C425FD600FE5594 /* PostView.swift */; };
 		4CE1AA8B2C425FF900FE5594 /* SingleMediaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA8A2C425FF900FE5594 /* SingleMediaPost.swift */; };
 		4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA8E2C4260B400FE5594 /* PostEngagementView.swift */; };
+		4CE1AA912C42CBD600FE5594 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA902C42CBD600FE5594 /* ExploreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		4CE1AA882C425FD600FE5594 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		4CE1AA8A2C425FF900FE5594 /* SingleMediaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMediaPost.swift; sourceTree = "<group>"; };
 		4CE1AA8E2C4260B400FE5594 /* PostEngagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEngagementView.swift; sourceTree = "<group>"; };
+		4CE1AA902C42CBD600FE5594 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 		4C8AB7FB2C4000EC00E3B190 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				4CE1AA902C42CBD600FE5594 /* ExploreView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
 				4CE1AA6C2C42570A00FE5594 /* BottomSheetView.swift in Sources */,
 				4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */,
+				4CE1AA912C42CBD600FE5594 /* ExploreView.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
 				4CE1AA8B2C425FF900FE5594 /* SingleMediaPost.swift in Sources */,

@@ -33,7 +33,6 @@ struct MainProfileHeaderInfoView: View {
                         }
                     }
                     
-                    
                     Text("@only_ej")
                         .fontWeight(.bold)
                         .foregroundStyle(Color(.systemGray3))
@@ -51,22 +50,7 @@ struct MainProfileHeaderInfoView: View {
                     }
                     .foregroundStyle(.white)
                 }
-                
             }
-            
-            
-//            Button {
-//                print("Enter Edit Mode")
-//            } label: {
-//                Text("Edit")
-//                    .padding(.vertical, 4)
-//                    .padding(.horizontal, 12)
-//                    .foregroundStyle(.black)
-//                    .background(.white)
-//                    .font(.subheadline)
-//                    .fontWeight(.bold)
-//                    .clipShape(Capsule(style: .continuous))
-//            }
         }
         .padding(20)
         .frame(maxWidth: .infinity)
@@ -89,7 +73,9 @@ struct FollowerDataView: View {
     }
 }
 
-#Preview {
-    MainProfileHeaderInfoView()
-        .background(.gray)
+struct MainProfileHeader_Previews: PreviewProvider {
+    static var previews: some View {
+        MainProfileHeaderInfoView()
+            .background(.gray)
+    }
 }

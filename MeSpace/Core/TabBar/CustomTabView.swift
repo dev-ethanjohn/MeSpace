@@ -1,10 +1,3 @@
-//
-//  CustomTabView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
 import SwiftUI
 
 struct CustomTabView: View {
@@ -34,7 +27,7 @@ struct CustomTabView: View {
             HStack(spacing: 36) {
                 ForEach(0..<3, id: \.self) { index in
                     Button(action: {
-                        withAnimation(.snappy(duration: 0.1)) {
+                        withAnimation(.spring()) {
                             if index == 0 {
                                 isProfileSelected.toggle()
                             } else {

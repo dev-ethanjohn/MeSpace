@@ -4,7 +4,7 @@ struct BottomSheetView: View {
     @Binding var offset: CGFloat
     @State private var selectedFilter: TabBarContentFilter = .posts
     @Namespace var animation
-  
+
     
     private let imageHeight: CGFloat = 140
     
@@ -31,7 +31,7 @@ struct BottomSheetView: View {
     }
     
     private func calculateProgress(geometry: GeometryProxy) -> CGFloat {
-        let maxHeight = UIScreen.main.bounds.height - 100
+        let maxHeight = UIScreen.main.bounds.height - 60
         return min(1, max(0, -offset / (maxHeight - 540)))
     }
     

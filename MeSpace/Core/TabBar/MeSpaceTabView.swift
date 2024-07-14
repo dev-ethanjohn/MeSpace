@@ -1,28 +1,18 @@
-//
-//  MeSpaceTabView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/12/24.
-//
-
-
-
 import SwiftUI
 
-
 struct MeSpaceTabView: View {
+    
     @State private var selectedTab = 1
     @State private var isProfileSelected = true
     
     var body: some View {
-        
         ZStack {
             TabView(selection: $selectedTab) {
                 ExploreView()
                     .tag(1)
                     .onTapGesture {
                         if selectedTab == 1 {
-                            withAnimation(.linear) {
+                            withAnimation(.smooth) {
                                 isProfileSelected.toggle()
                             }
                         }
@@ -40,28 +30,21 @@ struct MeSpaceTabView: View {
             
             VStack {
                 Spacer()
-
+                
                 CustomTabView(tabSelection: $selectedTab, isProfileSelected: $isProfileSelected, profileImage: Image("ej"))
                     .edgesIgnoringSafeArea(.bottom)
                     .frame(maxWidth: .infinity)
-                
             }
             .zIndex(1)
             
             if isProfileSelected {
                 ProfileView()
+                    .transition(.move(edge: .bottom))
+                    .zIndex(0)
             }
         }
     }
 }
-
-// Example views for Explore and Profile
-struct ExploreView: View {
-    var body: some View {
-        Text("Explore")
-    }
-}
-
 
 struct MeSpaceTabView_Previews: PreviewProvider {
     static var previews: some View {

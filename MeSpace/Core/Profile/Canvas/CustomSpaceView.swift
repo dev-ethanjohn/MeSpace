@@ -1,22 +1,11 @@
-//
-//  CustomSpaceView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/13/24.
-//
 
 import SwiftUI
 
 struct CustomSpaceView: View {
+
     var body: some View {
         VStack(spacing: 0) {
             CustomSpaceHeader()
-            
-            
-            // Add a spacer to push the content below the header
-            //            Spacer()
-            
-            // Add your canvas content here
             
             VStack {
                 Text("Hello")
@@ -31,10 +20,6 @@ struct CustomSpaceView: View {
         }
         .ignoresSafeArea()
     }
-}
-
-#Preview {
-    CustomSpaceView()
 }
 
 struct CustomSpaceView_Previews: PreviewProvider {

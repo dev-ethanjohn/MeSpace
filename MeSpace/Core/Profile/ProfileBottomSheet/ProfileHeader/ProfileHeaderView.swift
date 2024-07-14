@@ -10,7 +10,7 @@ struct ProfileHeaderView: View {
         ZStack(alignment: .top) {
             BackgroundImageView(progress: progress, imageHeight: imageHeight)
             Capsule()
-                .fill(Color.white.opacity(0.2))
+                .fill(Color.white.opacity(0.4))
                 .frame(width: 32, height: 4)
                 .padding(.top, 8)
             MainProfileHeaderInfoView()

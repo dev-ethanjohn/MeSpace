@@ -1,22 +1,15 @@
-//
-//  CustomSpaceHeader.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/13/24.
-//
-
 import SwiftUI
-
 
 struct CustomSpaceHeader: View {
     
     @State private var showMeLoginView = false
+
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    // Add your action here
+                   
                 }, label: {
                     Image(systemName: "pencil")
                         .padding()
