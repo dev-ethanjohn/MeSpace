@@ -3,13 +3,15 @@ import SwiftUI
 struct CustomSpaceHeader: View {
     
     @State private var showMeLoginView = false
-
+    @State private var textOpacity: Double = 0
+    
+    @Binding var showProfileName: Bool
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                   
+                    
                 }, label: {
                     Image(systemName: "pencil")
                         .padding()
@@ -18,6 +20,21 @@ struct CustomSpaceHeader: View {
                         .clipShape(RoundedRectangle(cornerRadius: 32))
                 })
                 
+                Spacer()
+                
+                if showProfileName {
+                    Text("Ethan John Paguntalan 💻")
+                        .font(.system(size: 17))
+                        .fontWeight(.bold)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.6)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundStyle(.black)
+                        .opacity(textOpacity)
+                        .padding(.horizontal, 4)
+                }
                 Spacer()
                 
                 Button(action: {
@@ -37,6 +54,11 @@ struct CustomSpaceHeader: View {
         .padding(.bottom, 20)
         .padding(.top, getSafeAreaTopPadding())
         .background(Color(.white))
+        .onChange(of: showProfileName) { _, newValue in
+            withAnimation(.easeInOut(duration: 0.5)) {
+                textOpacity = newValue ? 1 : 0
+            }
+        }
         .fullScreenCover(isPresented: $showMeLoginView) {
             NavigationStack {
                 LoginView(email: "", password: "")
@@ -55,6 +77,6 @@ struct CustomSpaceHeader: View {
 
 struct CanvasHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSpaceHeader()
+        CustomSpaceHeader(showProfileName: .constant(false))
     }
 }

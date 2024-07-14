@@ -2,10 +2,11 @@
 import SwiftUI
 
 struct CustomSpaceView: View {
-
+    
+    @Binding var showProfileName: Bool
     var body: some View {
         VStack(spacing: 0) {
-            CustomSpaceHeader()
+            CustomSpaceHeader(showProfileName: $showProfileName)
             
             VStack {
                 Text("Hello")
@@ -24,6 +25,6 @@ struct CustomSpaceView: View {
 
 struct CustomSpaceView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSpaceView()
+        CustomSpaceView(showProfileName: .constant(false))
     }
 }
