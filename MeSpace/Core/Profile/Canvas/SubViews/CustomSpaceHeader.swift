@@ -6,12 +6,15 @@ struct CustomSpaceHeader: View {
     @State private var textOpacity: Double = 0
     
     @Binding var showProfileName: Bool
+    @Binding var isBottomSheetVisible: Bool
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    
+                    withAnimation(.spring()) {
+                        isBottomSheetVisible.toggle()
+                    }
                 }, label: {
                     Image(systemName: "pencil")
                         .padding()
@@ -53,7 +56,7 @@ struct CustomSpaceHeader: View {
         .frame(height: 20)
         .padding(.bottom, 20)
         .padding(.top, getSafeAreaTopPadding())
-        .background(Color(.white))
+        .background(Color(.orange))
         .onChange(of: showProfileName) { _, newValue in
             withAnimation(.easeInOut(duration: 0.5)) {
                 textOpacity = newValue ? 1 : 0
@@ -77,6 +80,6 @@ struct CustomSpaceHeader: View {
 
 struct CanvasHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSpaceHeader(showProfileName: .constant(false))
+        CustomSpaceHeader(showProfileName: .constant(false), isBottomSheetVisible: .constant(true))
     }
 }

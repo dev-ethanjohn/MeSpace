@@ -60,7 +60,7 @@ struct BottomSheetDragGestureModifier_Previews: PreviewProvider {
         GeometryReader { geometry in
             Color.blue
                 .frame(width: 300, height: 500)
-                .modifier(BottomSheetDragGestureModifier(offset: .constant(0), lastDragValue: .constant(0), reader: geometry))
+                .modifier(BottomSheetDragGestureModifier(offset: .constant(0), lastDragValue: .constant(1), reader: geometry))
         }
     }
 }

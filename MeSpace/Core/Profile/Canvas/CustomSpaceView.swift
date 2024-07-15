@@ -4,9 +4,10 @@ import SwiftUI
 struct CustomSpaceView: View {
     
     @Binding var showProfileName: Bool
+    @Binding var isBottomSheetVisible: Bool
+
     var body: some View {
-        VStack(spacing: 0) {
-            CustomSpaceHeader(showProfileName: $showProfileName)
+        ZStack(alignment: .top) {
             
             VStack {
                 Text("Hello")
@@ -17,7 +18,12 @@ struct CustomSpaceView: View {
             .font(.body)
             .padding(.top, 40)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.white))
+            .background(Color(.yellow))
+            
+            CustomSpaceHeader(
+                showProfileName: $showProfileName,
+                isBottomSheetVisible: $isBottomSheetVisible
+            )
         }
         .ignoresSafeArea()
     }
@@ -25,6 +31,6 @@ struct CustomSpaceView: View {
 
 struct CustomSpaceView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSpaceView(showProfileName: .constant(false))
+        CustomSpaceView(showProfileName: .constant(false), isBottomSheetVisible: .constant(false))
     }
 }

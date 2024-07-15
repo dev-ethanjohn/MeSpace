@@ -24,10 +24,8 @@ struct MainProfileHeaderInfoView: View {
                             Capsule()
                                 .stroke(Color.white, lineWidth: 0.5)
                         )
-                    
                 }
             }
-            
             
             VStack(alignment: .leading, spacing: 24) {
                 VStack(alignment: .leading, spacing: 0) {

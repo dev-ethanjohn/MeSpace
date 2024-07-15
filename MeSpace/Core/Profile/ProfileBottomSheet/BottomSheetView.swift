@@ -5,11 +5,13 @@ struct BottomSheetView: View {
     @State private var selectedFilter: TabBarContentFilter = .posts
     @Namespace var animation
     @Binding var showProfileName: Bool
-    
+    @Binding var isVisible: Bool
     
     private let imageHeight: CGFloat = 140
     
+    let maxHeight = UIScreen.main.bounds.size.height - 60
     private let maxProgressThreshold: CGFloat = 0.99
+    private let defaultVisibleHeight: CGFloat = 540
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,10 +19,21 @@ struct BottomSheetView: View {
             
             ZStack(alignment: .top) {
                 VStack(spacing: 0) {
-                    ProfileHeaderView(progress: progress, imageHeight: imageHeight)
-                    BottomSheetTabBarView(selectedFilter: $selectedFilter, animation: animation, progress: progress, imageHeight: imageHeight)
+                    ProfileHeaderView(
+                        progress: progress,
+                        imageHeight: imageHeight
+                    )
+                    BottomSheetTabBarView(
+                        selectedFilter: $selectedFilter,
+                        animation: animation,
+                        progress: progress,
+                        imageHeight: imageHeight
+                    )
                     ScrollView {
-                        BottomSheetContentView(geometry: geometry, progress: progress, imageHeight: imageHeight)
+                        BottomSheetContentView(
+                            geometry: geometry,
+                            progress: progress,
+                            imageHeight: imageHeight)
                     }
                     .background(Color.white)
                     .offset(y: progress > maxProgressThreshold ? -imageHeight : 0)
@@ -37,12 +50,20 @@ struct BottomSheetView: View {
                     showProfileName = false
                 }
             }
+            .onChange(of: isVisible) { _, newValue in
+                withAnimation(.spring()) {
+                    if newValue {
+                        offset = 0
+                    } else {
+                        offset = defaultVisibleHeight
+                    }
+                }
+            }
         }
     }
     
     private func calculateProgress(geometry: GeometryProxy) -> CGFloat {
-        let maxHeight = UIScreen.main.bounds.height - 60
-        return min(1, max(0, -offset / (maxHeight - 540)))
+        return min(1, max(0, -offset / (maxHeight - defaultVisibleHeight)))
     }
     
     private func calculateSheetHeight(geometry: GeometryProxy, progress: CGFloat) -> CGFloat {
@@ -53,8 +74,9 @@ struct BottomSheetView: View {
 struct BottomSheetCustom_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            BottomSheetView(offset: .constant(0), showProfileName: .constant(false))
+            BottomSheetView(offset: .constant(0), showProfileName: .constant(false), isVisible: .constant(true))
         }
     }
 }
+
 
