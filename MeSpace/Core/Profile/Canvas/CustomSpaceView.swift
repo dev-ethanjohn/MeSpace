@@ -10,20 +10,18 @@ struct CustomSpaceView: View {
         ZStack(alignment: .top) {
             
             VStack {
-                Text("Hello")
-                Text("Customize your Profile Layout!")
+                CustomSpaceHeader(
+                    showProfileName: $showProfileName,
+                    isBottomSheetVisible: $isBottomSheetVisible
+                )
                 
+                Text("Hello")
                 Spacer()
             }
             .font(.body)
-            .padding(.top, 40)
+//            .padding(.top, 40)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.yellow))
-            
-            CustomSpaceHeader(
-                showProfileName: $showProfileName,
-                isBottomSheetVisible: $isBottomSheetVisible
-            )
         }
         .ignoresSafeArea()
     }

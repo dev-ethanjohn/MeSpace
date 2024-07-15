@@ -64,3 +64,4 @@ struct BottomSheetDragGestureModifier_Previews: PreviewProvider {
         }
     }
 }
+
