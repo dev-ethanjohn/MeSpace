@@ -24,6 +24,7 @@
 		4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */; };
 		4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */; };
 		4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */; };
+		4CC896C02C44DE49006CBC2E /* TestProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC896BF2C44DE49006CBC2E /* TestProfileView.swift */; };
 		4CE1AA622C4240A200FE5594 /* CustomSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */; };
 		4CE1AA652C42410300FE5594 /* CustomSpaceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */; };
 		4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA662C424FF200FE5594 /* ProfileView.swift */; };
@@ -63,6 +64,7 @@
 		4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPromptView.swift; sourceTree = "<group>"; };
 		4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceTabView.swift; sourceTree = "<group>"; };
 		4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		4CC896BF2C44DE49006CBC2E /* TestProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProfileView.swift; sourceTree = "<group>"; };
 		4CE1AA612C4240A200FE5594 /* CustomSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceView.swift; sourceTree = "<group>"; };
 		4CE1AA642C42410300FE5594 /* CustomSpaceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpaceHeader.swift; sourceTree = "<group>"; };
 		4CE1AA662C424FF200FE5594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		4C8AB7F52C40009100E3B190 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				4CC896BC2C44DE03006CBC2E /* Test */,
 				4C8AB7E22C3FB34200E3B190 /* ContentView.swift */,
 			);
 			path = Root;
@@ -338,6 +341,14 @@
 				4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		4CC896BC2C44DE03006CBC2E /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4CC896BF2C44DE49006CBC2E /* TestProfileView.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		4CE1AA602C422BF100FE5594 /* Canvas */ = {
@@ -498,6 +509,7 @@
 				4CE1AA872C425FBF00FE5594 /* PostProfileView.swift in Sources */,
 				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
 				4CE1AA7E2C425E4000FE5594 /* BottomSheetTabBarView.swift in Sources */,
+				4CC896C02C44DE49006CBC2E /* TestProfileView.swift in Sources */,
 				4CE1AA712C42597100FE5594 /* BottomSheetDragGestureModifier.swift in Sources */,
 				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,
 				4CE1AA622C4240A200FE5594 /* CustomSpaceView.swift in Sources */,

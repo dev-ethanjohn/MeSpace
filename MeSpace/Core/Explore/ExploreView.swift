@@ -9,15 +9,7 @@ import SwiftUI
 
 struct ExploreView: View {
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    Text("Hello")
-                }
-            }
-            .navigationTitle("Explore")
-            .navigationBarTitleDisplayMode(.inline)
-        }
+            Text("oKAY")
     }
 }
 

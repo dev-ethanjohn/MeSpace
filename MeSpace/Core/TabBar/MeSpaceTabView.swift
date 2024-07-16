@@ -5,6 +5,8 @@ struct MeSpaceTabView: View {
     @State private var selectedTab = 1
     @State private var isProfileSelected = true
     
+    @State private var isBottomSheetVisible = true
+    
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
@@ -34,11 +36,13 @@ struct MeSpaceTabView: View {
                 CustomTabView(tabSelection: $selectedTab, isProfileSelected: $isProfileSelected, profileImage: Image("ej"))
                     .edgesIgnoringSafeArea(.bottom)
                     .frame(maxWidth: .infinity)
+                    .offset(y: isBottomSheetVisible ? 0 : UIScreen.main.bounds.height)
+                    .animation(.spring(), value: isBottomSheetVisible)
             }
             .zIndex(1)
             
             if isProfileSelected {
-                ProfileView()
+                TestProfileView(isBottomSheetVisible: $isBottomSheetVisible)
                     .transition(.move(edge: .bottom))
                     .zIndex(0)
             }
