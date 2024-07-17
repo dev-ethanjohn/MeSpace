@@ -8,6 +8,8 @@ struct ProfileHeader: View {
     let progress: CGFloat
     @Binding var isHeaderTextVisible: Bool
     
+    @State private var isTextWhite: Bool = true
+    
     var body: some View {
         VStack  {
             HStack(spacing: 20) {
@@ -34,12 +36,17 @@ struct ProfileHeader: View {
                 }
                 
                 Text("Ethan John Paguntalan 💻")
-                    .foregroundColor(.black)
+                    .foregroundColor(isTextWhite ? .white : .black)
                     .fontWeight(.semibold)
                     .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
                     .opacity(isHeaderTextVisible ? 1 : 0)
                     .offset(y: isHeaderTextVisible ? 0 : 20)
                     .animation(.easeInOut(duration: 0.3), value: isHeaderTextVisible)
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            isTextWhite.toggle()  // Toggle the profile name color
+                        }
+                    }
                 
                 Button(action: {
                     // Add action for menu button
@@ -54,7 +61,7 @@ struct ProfileHeader: View {
             }
             .padding(.horizontal)
         }
-//        .background(.gray)
+        //        .background(.gray)
         .frame(height: 20)
         .padding(.bottom, 24)
         .padding(.top)

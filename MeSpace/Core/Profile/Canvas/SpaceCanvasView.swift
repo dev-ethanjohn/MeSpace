@@ -13,6 +13,7 @@ struct SpaceCanvasView: View {
                     SpaceContainer()
                         .clipShape(RoundedRectangle(cornerRadius: 24))
                 }
+                .shadow(color: Color.black.opacity(0.6), radius: 4, x: 0, y: 8)
                 .padding(.top, UIScreen.main.bounds.size.height * 0.05)
                 .padding()
             }
