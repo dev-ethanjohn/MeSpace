@@ -2,20 +2,20 @@ import SwiftUI
 
 struct SpaceCanvasView: View {
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .top) {
-                Color(.systemGray).opacity(0.2)
-                    .ignoresSafeArea()
+                Image("flower")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
+                    .ignoresSafeArea(.all)
                 
                 VStack {
-                    
                     SpaceContainer()
                         .clipShape(RoundedRectangle(cornerRadius: 24))
                 }
                 .padding(.top, UIScreen.main.bounds.size.height * 0.05)
                 .padding()
             }
-        }
     }
 }
 

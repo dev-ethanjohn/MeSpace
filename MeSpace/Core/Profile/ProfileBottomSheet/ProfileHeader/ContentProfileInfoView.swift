@@ -39,7 +39,7 @@ struct ContentProfileInfoView: View {
                     
                     Text("@only_ej")
                         .fontWeight(.bold)
-                        .foregroundStyle(Color(.systemGray3))
+                        .foregroundStyle(Color(.systemGray5))
                         .font(.footnote)
                     
                     Spacer()

@@ -11,15 +11,26 @@ struct ContentSheet: View {
             VStack(spacing: 0) {
                 ZStack {
                     GeometryReader { imageGeometry in
-                        Image("profileheaderpic")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: imageGeometry.size.width * 1.06)
-                            .blur(radius: 4)
-                            .overlay(Color.black.opacity(0.6))
-                            .mask(Rectangle().frame(width: imageGeometry.size.width, height: 140))
-                            .frame(width: imageGeometry.size.width, height: 140)
-                            .clipped()
+                        ZStack {
+                              Image("crowd")
+                                  .resizable()
+                                  .aspectRatio(contentMode: .fill)
+                                  .frame(width: imageGeometry.size.width * 1.06, height: 140)
+                                  .blur(radius: 0.5)
+                              
+                              LinearGradient(
+                                  gradient: Gradient(stops: [
+                                    .init(color: Color(.black).opacity(0.20), location: 0),
+                                      .init(color: Color(.black).opacity(0.30), location: 0.4),
+                                    .init(color: Color(.black).opacity(0.40), location: 0.55),
+                                      .init(color: Color(.black).opacity(0.70), location: 1)
+                                  ]),
+                                  startPoint: .top,
+                                  endPoint: .bottom
+                              )
+                          }
+                          .frame(width: imageGeometry.size.width, height: 140)
+                          .clipShape(Rectangle())
                     }
                     
                     ContentProfileWrapper()

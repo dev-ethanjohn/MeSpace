@@ -16,14 +16,22 @@ struct ProfileView: View {
             
             ZStack(alignment: .top) {
                 ProfileHeader(isBottomSheetVisible: $isBottomSheetVisible,
-                                 offset: $offset,
-                                 lastDragValue: $lastDragValue,
-                                 geometry: geometry,
-                                 progress: progress,
-                                 isHeaderTextVisible: $isHeaderTextVisible)
-                    .zIndex(1)
+                              offset: $offset,
+                              lastDragValue: $lastDragValue,
+                              geometry: geometry,
+                              progress: progress,
+                              isHeaderTextVisible: $isHeaderTextVisible
+                )
+                .zIndex(1)
+                
                 
                 SpaceCanvasView()
+                
+                Color.black.opacity(0.28)
+                    .ignoresSafeArea()
+                    .opacity(isBottomSheetVisible ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
+                
                 
                 ZStack(alignment: .bottom) {
                     ContentSheet(progress: progress, maxOffset: screenHeight * 0.325)
@@ -73,5 +81,18 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView(isBottomSheetVisible: .constant(true))
+    }
+}
+
+
+struct BlurView: UIViewRepresentable {
+    let style: UIBlurEffect.Style
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        return UIVisualEffectView(effect: UIBlurEffect(style: style))
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = UIBlurEffect(style: style)
     }
 }

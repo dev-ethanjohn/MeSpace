@@ -54,6 +54,7 @@ struct ProfileHeader: View {
             }
             .padding(.horizontal)
         }
+//        .background(.gray)
         .frame(height: 20)
         .padding(.bottom, 24)
         .padding(.top)
