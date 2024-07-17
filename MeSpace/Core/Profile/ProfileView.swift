@@ -7,6 +7,7 @@ struct ProfileView: View {
     @Binding var isBottomSheetVisible: Bool
     @State private var isHeaderTextVisible: Bool = false
     
+    
     var body: some View {
         GeometryReader { geometry in
             let progress = calculateProgress(geometry: geometry)
