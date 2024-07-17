@@ -1,38 +1,26 @@
-//
-//  BottomSheetTabBarView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/13/24.
-//
-
-//
-//  TabBarView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/11/24.
-//
-
 import SwiftUI
 
-struct BottomSheetTabBarView: View {
+struct ContentFilterTabBarWrapper: View {
     @Binding var selectedFilter: TabBarContentFilter
     var animation: Namespace.ID
     let progress: CGFloat
-    let imageHeight: CGFloat
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(TabBarContentFilter.allCases, id: \.self) { filter in
-                TabBarItemView(filter: filter, selectedFilter: $selectedFilter, animation: animation)
+                ContentFilterTabBarView(filter: filter, selectedFilter: $selectedFilter, animation: animation)
             }
         }
-        .frame(height: 44)
+        .padding(.top, progress >= 0.99 ? 10 : 0)
+        .frame(height: progress >= 0.99 ? 52 : 44)
         .background(Color.white)
-        .offset(y: progress > 0.99 ? -imageHeight : 0)
     }
 }
 
-struct TabBarItemView: View {
+
+
+
+struct ContentFilterTabBarView: View {
     let filter: TabBarContentFilter
     @Binding var selectedFilter: TabBarContentFilter
     var animation: Namespace.ID
@@ -70,10 +58,11 @@ struct TabBarItemView: View {
     }
 }
 
-struct TabBarView_Previews: PreviewProvider {
+
+struct ContentFilterTabBarWrapper_Previews: PreviewProvider {
     @Namespace static var animation
     
     static var previews: some View {
-        BottomSheetTabBarView(selectedFilter: .constant(.posts), animation: animation, progress: 0.5, imageHeight: 140)
+        ContentFilterTabBarWrapper(selectedFilter: .constant(.posts), animation: animation, progress: 0.5)
     }
 }

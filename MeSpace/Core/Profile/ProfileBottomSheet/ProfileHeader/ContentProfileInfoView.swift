@@ -1,8 +1,8 @@
+
 import SwiftUI
 
-struct MainProfileHeaderInfoView: View {
+struct ContentProfileInfoView: View {
     var body: some View {
-        
         HStack(alignment: .top, spacing: 20) {
             VStack(spacing: 20) {
                 Image("ej")
@@ -11,10 +11,9 @@ struct MainProfileHeaderInfoView: View {
                     .frame(width: 48, height: 48)
                     .clipShape(Circle())
                 
-                
-                Button {
+                Button(action: {
                     print("Enter Edit Mode")
-                } label: {
+                }) {
                     Image(systemName: "gearshape.fill")
                         .font(.system(size: 12, weight: .semibold))
                         .padding(.vertical, 4)
@@ -62,25 +61,9 @@ struct MainProfileHeaderInfoView: View {
     }
 }
 
-struct FollowerDataView: View {
-    let count: String
-    let label: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(count)
-                .fontWeight(.bold)
-                .font(.footnote)
-            Text(label)
-                .foregroundStyle(Color(.lightGray))
-                .font(.footnote)
-        }
-    }
-}
-
-struct MainProfileHeader_Previews: PreviewProvider {
+struct TestMainProfileHeaderInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        MainProfileHeaderInfoView()
-            .background(.gray)
+        ContentProfileInfoView()
+            .background(Color.black)
     }
 }

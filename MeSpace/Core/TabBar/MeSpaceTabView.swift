@@ -42,7 +42,7 @@ struct MeSpaceTabView: View {
             .zIndex(1)
             
             if isProfileSelected {
-                TestProfileView(isBottomSheetVisible: $isBottomSheetVisible)
+                ProfileView(isBottomSheetVisible: $isBottomSheetVisible)
                     .transition(.move(edge: .bottom))
                     .zIndex(0)
             }
