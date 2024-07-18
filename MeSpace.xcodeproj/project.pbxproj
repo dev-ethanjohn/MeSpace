@@ -27,6 +27,7 @@
 		4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */; };
 		4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */; };
 		4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C782C47AD160083F590 /* SpaceContainer.swift */; };
+		4CDC5C7B2C47E8910083F590 /* CommentWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C7A2C47E8910083F590 /* CommentWall.swift */; };
 		4CE1AA622C4240A200FE5594 /* SpaceCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA612C4240A200FE5594 /* SpaceCanvasView.swift */; };
 		4CE1AA652C42410300FE5594 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA642C42410300FE5594 /* ProfileHeader.swift */; };
 		4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA662C424FF200FE5594 /* ProfileView.swift */; };
@@ -61,6 +62,7 @@
 		4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDataView.swift; sourceTree = "<group>"; };
 		4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterTabBarWrapper.swift; sourceTree = "<group>"; };
 		4CDC5C782C47AD160083F590 /* SpaceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceContainer.swift; sourceTree = "<group>"; };
+		4CDC5C7A2C47E8910083F590 /* CommentWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWall.swift; sourceTree = "<group>"; };
 		4CE1AA612C4240A200FE5594 /* SpaceCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceCanvasView.swift; sourceTree = "<group>"; };
 		4CE1AA642C42410300FE5594 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		4CE1AA662C424FF200FE5594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				4CDC5C782C47AD160083F590 /* SpaceContainer.swift */,
 				4CE1AA642C42410300FE5594 /* ProfileHeader.swift */,
+				4CDC5C7A2C47E8910083F590 /* CommentWall.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
+				4CDC5C7B2C47E8910083F590 /* CommentWall.swift in Sources */,
 				4CE1AA712C42597100FE5594 /* BottomSheetDragGestureModifier.swift in Sources */,
 				4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */,
 				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,

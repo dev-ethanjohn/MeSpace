@@ -14,7 +14,7 @@ struct SpaceContainer: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .frame(height: 500)
+        .frame(height: 400)
         .background(Color(.white))
     }
 }
