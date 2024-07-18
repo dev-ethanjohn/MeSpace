@@ -26,7 +26,8 @@ struct ProfileView: View {
                 
                 
                 SpaceCanvasView()
-
+                    .blur(radius: isBottomSheetVisible ? 2 : 0)
+                    .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
                 
                 Color.black.opacity(0.28)
                     .ignoresSafeArea()
@@ -36,7 +37,7 @@ struct ProfileView: View {
                 
                 ZStack(alignment: .bottom) {
                     ContentSheet(progress: progress, maxOffset: screenHeight * 0.325)
-                        .shadow(color: Color.black.opacity(0.16), radius: 4, x: 0, y: -4)
+                        .shadow(color: Color.black.opacity(0.24), radius: 8, x: 0, y: -4)
                         .frame(height: bottomSheetHeight)
                         .offset(y: calculateBottomSheetOffset(screenHeight: screenHeight, bottomSheetHeight: bottomSheetHeight))
                         .bottomSheetDragGesture(offset: $offset, lastDragValue: $lastDragValue, reader: geometry)
