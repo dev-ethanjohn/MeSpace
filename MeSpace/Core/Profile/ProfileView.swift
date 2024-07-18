@@ -7,7 +7,6 @@ struct ProfileView: View {
     @Binding var isBottomSheetVisible: Bool
     @State private var isHeaderTextVisible: Bool = false
     
-    
     var body: some View {
         GeometryReader { geometry in
             let progress = calculateProgress(geometry: geometry)
@@ -26,7 +25,7 @@ struct ProfileView: View {
                 
                 
                 SpaceCanvasView()
-                    .blur(radius: isBottomSheetVisible ? 2 : 0)
+                    .blur(radius: isBottomSheetVisible ? 4 : 0)
                     .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
                 
                 Color.black.opacity(0.28)

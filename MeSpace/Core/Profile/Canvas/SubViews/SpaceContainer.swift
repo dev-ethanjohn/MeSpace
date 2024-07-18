@@ -12,7 +12,8 @@ struct SpaceContainer: View {
         VStack {
             
         }
-        .padding()
+        .padding(.vertical)
+        .padding(.horizontal, 12)
         .frame(maxWidth: .infinity)
         .frame(height: 400)
         .background(Color(.white))

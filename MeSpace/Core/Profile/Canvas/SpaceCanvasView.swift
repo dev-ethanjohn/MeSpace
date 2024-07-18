@@ -7,7 +7,7 @@ struct SpaceCanvasView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Image("711")
+            Image("still")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
@@ -17,9 +17,11 @@ struct SpaceCanvasView: View {
                 SpaceContainer()
                     .clipShape(RoundedRectangle(cornerRadius: 24))
             }
-            .shadow(color: Color.black.opacity(0.6), radius: 4, x: 0, y: 8)
+            .shadow(color: Color.black.opacity(0.24), radius: 4, x: 0, y: 8)
             .padding(.top, UIScreen.main.bounds.size.height * 0.05)
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, 10) 
+            
             
             VStack {
                 Spacer()
