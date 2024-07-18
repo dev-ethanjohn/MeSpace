@@ -12,22 +12,26 @@ struct ContentSheet: View {
                 ZStack {
                     GeometryReader { imageGeometry in
                         ZStack {
-                              Image("crowd")
+                              Image("flower")
                                   .resizable()
                                   .aspectRatio(contentMode: .fill)
                                   .frame(width: imageGeometry.size.width * 1.06, height: 140)
-                                  .blur(radius: 0.5)
+//                                  .blur(radius: 3)
                               
                               LinearGradient(
                                   gradient: Gradient(stops: [
-                                    .init(color: Color(.black).opacity(0.20), location: 0),
-                                      .init(color: Color(.black).opacity(0.30), location: 0.4),
-                                    .init(color: Color(.black).opacity(0.40), location: 0.55),
-                                      .init(color: Color(.black).opacity(0.70), location: 1)
+                                    .init(color: Color(hex: 0x111111).opacity(0.2), location: 0),
+                                    .init(color: Color(hex: 0x111111).opacity(0.3), location: 0.4),
+                                    .init(color: Color(hex: 0x222222).opacity(0.45), location: 0.55),
+                                    .init(color: Color(hex: 0x333333).opacity(0.75), location: 0.70),
+                                    .init(color: Color(hex: 0x333333).opacity(0.95), location: 0.85),
+                                    .init(color: Color(hex: 0x333333).opacity(1), location: 1)
                                   ]),
                                   startPoint: .top,
                                   endPoint: .bottom
                               )
+                            
+                            Color.black.opacity(0.20)
                           }
                           .frame(width: imageGeometry.size.width, height: 140)
                           .clipShape(Rectangle())
@@ -58,5 +62,18 @@ struct ContentSheet: View {
 struct TestBottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         ContentSheet(progress: 0.5, maxOffset: 300)
+    }
+}
+
+
+extension Color {
+    init(hex: UInt, alpha: Double = 1) {
+        self.init(
+            .sRGB,
+            red: Double((hex >> 16) & 0xff) / 255,
+            green: Double((hex >> 08) & 0xff) / 255,
+            blue: Double((hex >> 00) & 0xff) / 255,
+            opacity: alpha
+        )
     }
 }

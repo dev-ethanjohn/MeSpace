@@ -7,7 +7,7 @@ struct SpaceCanvasView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Image("flower")
+            Image("711")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)

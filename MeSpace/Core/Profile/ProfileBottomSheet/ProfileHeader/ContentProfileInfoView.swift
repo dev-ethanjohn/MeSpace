@@ -15,7 +15,7 @@ struct ContentProfileInfoView: View {
                     print("Enter Edit Mode")
                 }) {
                     Image(systemName: "gearshape.fill")
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.system(size: 14, weight: .semibold))
                         .padding(.vertical, 4)
                         .padding(.horizontal, 10)
                         .foregroundStyle(.white)
