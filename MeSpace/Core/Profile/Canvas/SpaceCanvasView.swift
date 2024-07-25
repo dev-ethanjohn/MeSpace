@@ -5,40 +5,179 @@ struct SpaceCanvasView: View {
     let defaultSheetHeight: CGFloat = 0.1 // 90% of screen height
     let sheetCornerRadius: CGFloat = 24
     
+    
+    @State private var blurType: BlurType = .freestyle
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            Image("still")
+        ZStack(alignment: .bottom) {
+            Image("sad")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
                 .ignoresSafeArea()
+                .zIndex(0)
             
-            VStack {
-                SpaceContainer()
-                    .clipShape(RoundedRectangle(cornerRadius: 24))
-            }
-            .shadow(color: Color.black.opacity(0.24), radius: 4, x: 0, y: 8)
-            .padding(.top, UIScreen.main.bounds.size.height * 0.05)
-            .padding(.vertical)
-            .padding(.horizontal, 10) 
-            
-            
-            VStack {
-                Spacer()
-                Button("Show Comment Wall") {
-                    isSheetPresented = true
-                }
-                .padding()
+            ScrollView {
+                VStack(spacing: 16) {
+                    SpaceContainer()
+                    
+                    GeometryReader { geometry in
+                        HStack(spacing: 12) {
+                            LinksContainerView()
+                                .frame(width: (geometry.size.width - 12) / 2)
+                            
+//                            LinksContainerView()
+//                                .frame(width: (geometry.size.width - 12) / 2)
+                        }
+                    }
+                    .frame(height: 80)
+                    
+                    
+                    GeometryReader { geometry in
+                        HStack(spacing: 12) {
+                            VStack {
+                                Text("Likes 👍")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.black)
+                            }
+                            .padding(8)
+                            .frame(height: 80)
+                            .frame(width: (geometry.size.width - 12) / 2)
+                            .background(Color(hex: 0xceed8e))
+                            .clipShape(.capsule)
+                            
+                            VStack {
+                                Text("Dislikes")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                            }
+                            .padding(8)
+                            .frame(height: 80)
+                            .frame(width: (geometry.size.width - 12) / 2)
+                            .background(Color(hex: 0xe8561c))
                 
-                Button {
-                    isSheetPresented = true
-                } label: {
-                    Image(systemName: "")
-                }
+                            
 
-                
-                Spacer()
+                        }
+                    }
+                    .frame(height: 80)
+                    
+                    
+                    VStack {
+                        Text("Friends")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.black)
+                    }
+                    .padding(8)
+                    .frame(maxHeight: UIScreen.main.bounds.size.width)
+                    .background(Color(hex: 0xffffff))
+                    
+                  
+                    // Add other content here
+                }
+                .padding(.horizontal, 16) // Uniform horizontal padding
+                .padding(.top, UIScreen.main.bounds.size.height * 0.01)
             }
+            .padding(.top, 120)
+            .ignoresSafeArea(edges: .top)
+            .scrollIndicators(.hidden)
+            
+            ZStack(alignment: .bottom) {
+                
+                BlurView()
+                    .blur(radius: 0.8)
+                
+                
+                BlurView()
+                    .blur(radius: 4)
+                    .frame(maxHeight: 70)
+                
+                
+                BlurView()
+                    .blur(radius: 12)
+                    .frame(maxHeight: 40)
+                
+                
+                
+                
+                
+                LinearGradient(
+                    gradient: Gradient(stops: [
+                        .init(color: Color(hex: 0x000000).opacity(0), location: 0),
+                        .init(color: Color(hex: 0x000000).opacity(0.05), location: 0.2),
+                        .init(color: Color(hex: 0x000000).opacity(0.15), location: 0.4),
+                        .init(color: Color(hex: 0x000000).opacity(0.35), location: 0.6),
+                        .init(color: Color(hex: 0x000000).opacity(0.55), location: 0.8),
+                        .init(color: Color(hex: 0x000000).opacity(0.75), location: 1)
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                
+                
+                
+                
+                //                BlurView(removeAllFilters: true)
+                //                    .blur(radius: 40, opaque: blurType == .freestyle)
+                //                    .opacity(0.6)
+                
+                VStack(alignment: .leading) {
+                    
+                    HStack(alignment: .top, spacing: 16) {
+                        Button {
+                            print("Open comment wall")
+                        } label: {
+                            Image(systemName: "ellipsis.bubble.fill")
+                                .font(.system(size: 16))
+                                .foregroundStyle(Color(.black))
+                                .padding(10)
+                                .background(Color(.white).opacity(0.8))
+                                .background(Material.ultraThin.opacity(0.6))
+                                .clipShape(.capsule)
+                        }
+                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
+                        //                        .overlay(
+                        //                            Capsule()
+                        //                                .stroke(Color.black, lineWidth: 1)
+                        //                        )
+                        
+                        Button {
+                            print("Edit Profile")
+                        } label: {
+                            Text("Customize Space")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(.black))
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 20)
+                                .background(Color(.white).opacity(0.8))
+                                .background(Material.ultraThin.opacity(0.6))
+                                .clipShape(.capsule)
+                        }
+                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
+                        //                        .overlay(
+                        //                            Capsule()
+                        //                                .stroke(Color.black, lineWidth: 1)
+                        //                        )
+                        
+                        
+                        Spacer()
+                        Spacer()
+                    }
+                    .frame(height: 80)
+                    //                    .background(.gray)
+                    
+                    Spacer()
+                }
+                .padding(16)
+                //                .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
+            }
+            .frame(maxHeight: 100)
+            .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
+            
         }
         .sheet(isPresented: $isSheetPresented) {
             VStack(alignment: .leading) {
@@ -49,7 +188,6 @@ struct SpaceCanvasView: View {
                         .large
                     ])
                     .presentationDragIndicator(.visible)
-                //                .interactiveDismissDisabled()
                     .presentationCornerRadius(sheetCornerRadius)
                     .presentationBackground(Material.thick)
             }
@@ -102,3 +240,98 @@ struct CommentWallSheet: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
+struct SimplifiedSpaceCanvasView: View {
+    @State private var isSheetPresented = false
+    @State private var buttonTapped = false
+    
+    var body: some View {
+        ZStack {
+            Color.blue.opacity(0.3).edgesIgnoringSafeArea(.all) // Background
+            
+            VStack {
+                Spacer()
+                
+                Button(action: {
+                    buttonTapped = true
+                    isSheetPresented = true
+                }) {
+                    Text("Tap Me")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+                .padding(.bottom, 50)
+            }
+            
+            if buttonTapped {
+                Text("Button was tapped!")
+                    .foregroundColor(.green)
+                    .font(.headline)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .transition(.scale)
+            }
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            Text("Sheet Content")
+                .presentationDetents([.medium, .large])
+        }
+    }
+}
+
+struct SimplifiedSpaceCanvasView_Previews: PreviewProvider {
+    static var previews: some View {
+        SimplifiedSpaceCanvasView()
+    }
+}
+
+
+
+
+//                HStack(alignment: .top) {
+//
+//                    Button {
+//                        isSheetPresented = true
+//                    } label: {
+//                        Image(systemName: "text.bubble.fill")
+//                            .imageScale(.medium)
+//                            .foregroundStyle(.white)
+//                            .padding(12)
+//                            .background(Material.ultraThin)
+//                            .clipShape(Circle())
+//                    }
+//
+//                    Spacer()
+//                }
+//                .padding()
+//                .frame(height: 100)
+//                .background(.white)
+
+//                GeometryReader { imageGeometry in
+//                    ZStack {
+//                          Image("ghibli4")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fill)
+//                              .frame(width: imageGeometry.size.width * 1.06, height: 140)
+//
+//                          LinearGradient(
+//                              gradient: Gradient(stops: [
+//                                .init(color: Color(hex: 0x111111).opacity(0.1), location: 0),
+//                                .init(color: Color(hex: 0x111111).opacity(0.2), location: 0.4),
+//                                .init(color: Color(hex: 0x222222).opacity(0.45), location: 0.55),
+//                                .init(color: Color(hex: 0x444444).opacity(0.75), location: 0.70),
+//                                .init(color: Color(hex: 0x444444).opacity(0.95), location: 0.85),
+//                                .init(color: Color(hex: 0x444444).opacity(1), location: 1)
+//                              ]),
+//                              startPoint: .top,
+//                              endPoint: .bottom
+//                          )
+//
+//                        Color.black.opacity(0.20)
+//                      }
+//                      .frame(width: imageGeometry.size.width, height: 140)
+//                      .clipShape(Rectangle())
+//                }

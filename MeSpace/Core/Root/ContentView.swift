@@ -49,9 +49,10 @@ Enhancement: Improving or optimizing existing functionality.
 //MESPACE
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
-            LoginView(email: "mespace@gmail.com", password: "123456")
-        }
+//        NavigationStack {
+//            LoginView(email: "mespace@gmail.com", password: "123456")
+//        }
+        MeSpaceTabView()
     }
 }
 

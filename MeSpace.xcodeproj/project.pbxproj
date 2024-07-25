@@ -12,6 +12,8 @@
 		4C8AB7E52C3FB34500E3B190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */; };
 		4C8AB7E82C3FB34500E3B190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E72C3FB34500E3B190 /* Preview Assets.xcassets */; };
 		4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB8072C400D8300E3B190 /* LogInView.swift */; };
+		4CA480452C4D49F800874D20 /* LinksContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA480442C4D49F800874D20 /* LinksContainerView.swift */; };
+		4CB8805E2C4E44B5008C1605 /* ExtraContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8805D2C4E44B5008C1605 /* ExtraContainer.swift */; };
 		4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB94882C41015000EA1C40 /* LoginHeaderView.swift */; };
 		4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */; };
 		4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */; };
@@ -24,6 +26,9 @@
 		4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */; };
 		4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */; };
 		4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */; };
+		4CDC31832C4FCF7700951575 /* BlurType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31822C4FCF7700951575 /* BlurType.swift */; };
+		4CDC31852C4FD40400951575 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31842C4FD40400951575 /* BlurView.swift */; };
+		4CDC31872C4FDA8300951575 /* CanvasTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31862C4FDA8300951575 /* CanvasTabBar.swift */; };
 		4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */; };
 		4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */; };
 		4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C782C47AD160083F590 /* SpaceContainer.swift */; };
@@ -47,6 +52,8 @@
 		4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C8AB7E72C3FB34500E3B190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C8AB8072C400D8300E3B190 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		4CA480442C4D49F800874D20 /* LinksContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksContainerView.swift; sourceTree = "<group>"; };
+		4CB8805D2C4E44B5008C1605 /* ExtraContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraContainer.swift; sourceTree = "<group>"; };
 		4CBB94882C41015000EA1C40 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
 		4CBB948A2C41017D00EA1C40 /* NavAndActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavAndActionsView.swift; sourceTree = "<group>"; };
 		4CBB948C2C4101A600EA1C40 /* RegistrationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationLinkView.swift; sourceTree = "<group>"; };
@@ -59,6 +66,9 @@
 		4CBB949B2C41494600EA1C40 /* SignInPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPromptView.swift; sourceTree = "<group>"; };
 		4CBB949D2C41716800EA1C40 /* MeSpaceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceTabView.swift; sourceTree = "<group>"; };
 		4CBB949F2C4171F200EA1C40 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		4CDC31822C4FCF7700951575 /* BlurType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurType.swift; sourceTree = "<group>"; };
+		4CDC31842C4FD40400951575 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		4CDC31862C4FDA8300951575 /* CanvasTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasTabBar.swift; sourceTree = "<group>"; };
 		4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDataView.swift; sourceTree = "<group>"; };
 		4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterTabBarWrapper.swift; sourceTree = "<group>"; };
 		4CDC5C782C47AD160083F590 /* SpaceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceContainer.swift; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 		4C8AB7F12C3FF8B000E3B190 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4CDC31842C4FD40400951575 /* BlurView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 		4C8AB7F22C3FF8B500E3B190 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4CDC31822C4FCF7700951575 /* BlurType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +322,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4CA480432C4D49A700874D20 /* CustomizedSpace */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC5C782C47AD160083F590 /* SpaceContainer.swift */,
+				4CA480442C4D49F800874D20 /* LinksContainerView.swift */,
+			);
+			path = CustomizedSpace;
+			sourceTree = "<group>";
+		};
 		4CBB94872C40E66400EA1C40 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +366,7 @@
 			children = (
 				4CE1AA612C4240A200FE5594 /* SpaceCanvasView.swift */,
 				4CE1AA632C4240E300FE5594 /* SubViews */,
+				4CDC31862C4FDA8300951575 /* CanvasTabBar.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -352,9 +374,10 @@
 		4CE1AA632C4240E300FE5594 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				4CDC5C782C47AD160083F590 /* SpaceContainer.swift */,
+				4CA480432C4D49A700874D20 /* CustomizedSpace */,
 				4CE1AA642C42410300FE5594 /* ProfileHeader.swift */,
 				4CDC5C7A2C47E8910083F590 /* CommentWall.swift */,
+				4CB8805D2C4E44B5008C1605 /* ExtraContainer.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -474,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDC31832C4FCF7700951575 /* BlurType.swift in Sources */,
 				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
 				4CDC5C7B2C47E8910083F590 /* CommentWall.swift in Sources */,
 				4CE1AA712C42597100FE5594 /* BottomSheetDragGestureModifier.swift in Sources */,
@@ -482,12 +506,15 @@
 				4CE1AA622C4240A200FE5594 /* SpaceCanvasView.swift in Sources */,
 				4CE1AA752C425BCF00FE5594 /* ContentProfileWrapper.swift in Sources */,
 				4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */,
+				4CDC31872C4FDA8300951575 /* CanvasTabBar.swift in Sources */,
 				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
 				4CE1AA772C425C1D00FE5594 /* ContentProfileInfoView.swift in Sources */,
+				4CB8805E2C4E44B5008C1605 /* ExtraContainer.swift in Sources */,
 				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
 				4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */,
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
+				4CA480452C4D49F800874D20 /* LinksContainerView.swift in Sources */,
 				4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */,
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,
 				4CE1AA6C2C42570A00FE5594 /* ContentSheet.swift in Sources */,
@@ -497,6 +524,7 @@
 				4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
 				4CBB949E2C41716800EA1C40 /* MeSpaceTabView.swift in Sources */,
+				4CDC31852C4FD40400951575 /* BlurView.swift in Sources */,
 				4CE1AA812C425EE400FE5594 /* TabBarContentFilter.swift in Sources */,
 				4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */,
 				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
