@@ -280,9 +280,6 @@ struct SpaceContainer: View {
                                             .stroke(Color(hex: 0x6997CE), lineWidth: 1)
                                     )
                                 
-//                                Text("12 images and 3 videos")
-//                                    .font(.caption2)
-                                
                                 
                             }
                             

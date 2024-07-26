@@ -10,13 +10,16 @@ struct SpaceCanvasView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("sad")
+            Image("flower")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
                 .ignoresSafeArea()
                 .zIndex(0)
-            
+//            
+//            Color.blue.opacity(0.4)
+//                .ignoresSafeArea()
+//            
             ScrollView {
                 VStack(spacing: 16) {
                     SpaceContainer()
@@ -75,10 +78,8 @@ struct SpaceCanvasView: View {
                     .frame(maxHeight: UIScreen.main.bounds.size.width)
                     .background(Color(hex: 0xffffff))
                     
-                  
-                    // Add other content here
                 }
-                .padding(.horizontal, 16) // Uniform horizontal padding
+                .padding(.horizontal, 16)
                 .padding(.top, UIScreen.main.bounds.size.height * 0.01)
             }
             .padding(.top, 120)
@@ -92,17 +93,14 @@ struct SpaceCanvasView: View {
                 
                 
                 BlurView()
-                    .blur(radius: 4)
-                    .frame(maxHeight: 70)
+                    .blur(radius: 8)
+                    .frame(maxHeight: 90)
                 
                 
                 BlurView()
-                    .blur(radius: 12)
-                    .frame(maxHeight: 40)
-                
-                
-                
-                
+                    .blur(radius: 20)
+                    .frame(maxHeight: 70)
+                        
                 
                 LinearGradient(
                     gradient: Gradient(stops: [
@@ -117,17 +115,13 @@ struct SpaceCanvasView: View {
                     endPoint: .bottom
                 )
                 
-                
-                
-                
-                //                BlurView(removeAllFilters: true)
-                //                    .blur(radius: 40, opaque: blurType == .freestyle)
-                //                    .opacity(0.6)
+            
                 
                 VStack(alignment: .leading) {
                     
                     HStack(alignment: .top, spacing: 16) {
                         Button {
+                            isSheetPresented =  true
                             print("Open comment wall")
                         } label: {
                             Image(systemName: "ellipsis.bubble.fill")
@@ -139,11 +133,7 @@ struct SpaceCanvasView: View {
                                 .clipShape(.capsule)
                         }
                         .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
-                        //                        .overlay(
-                        //                            Capsule()
-                        //                                .stroke(Color.black, lineWidth: 1)
-                        //                        )
-                        
+        
                         Button {
                             print("Edit Profile")
                         } label: {
@@ -158,29 +148,62 @@ struct SpaceCanvasView: View {
                                 .clipShape(.capsule)
                         }
                         .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
-                        //                        .overlay(
-                        //                            Capsule()
-                        //                                .stroke(Color.black, lineWidth: 1)
-                        //                        )
+                    
                         
                         
                         Spacer()
                         Spacer()
                     }
                     .frame(height: 80)
-                    //                    .background(.gray)
+        
                     
                     Spacer()
                 }
                 .padding(16)
-                //                .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
+               
             }
-            .frame(maxHeight: 100)
+            .frame(maxHeight: 90)
             .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
+            
+            BlurView()
+                .opacity(isSheetPresented ? 1 : 0)
+                .blur(radius: isSheetPresented ? 0.05 : 0)
+                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.4)
+                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
+            
+            BlurView()
+                .opacity(isSheetPresented ? 1 : 0)
+                .blur(radius: isSheetPresented ? 0.6 : 0)
+                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.16)
+                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
+            
+            BlurView()
+                .opacity(isSheetPresented ? 1 : 0)
+                .blur(radius: isSheetPresented ? 8 : 0)
+                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.08)
+                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
+            
+            
+            // overlay gradient on contents when is sheet is opened
+            LinearGradient(
+                gradient: Gradient(stops: [
+                    .init(color: Color(hex: 0x000000).opacity(0), location: 0),
+                    .init(color: Color(hex: 0x000000).opacity(0.05), location: 0.2),
+                    .init(color: Color(hex: 0x000000).opacity(0.15), location: 0.4),
+                    .init(color: Color(hex: 0x000000).opacity(0.25), location: 0.6),
+                    .init(color: Color(hex: 0x000000).opacity(0.35), location: 0.8),
+                    .init(color: Color(hex: 0x000000).opacity(0.55), location: 1)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            .opacity(isSheetPresented ? 1 : 0)
+            .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
             
         }
         .sheet(isPresented: $isSheetPresented) {
-            VStack(alignment: .leading) {
+            ZStack {
                 CommentWallSheet()
                     .presentationDetents([
                         .height(UIScreen.main.bounds.height * defaultSheetHeight),
@@ -189,8 +212,8 @@ struct SpaceCanvasView: View {
                     ])
                     .presentationDragIndicator(.visible)
                     .presentationCornerRadius(sheetCornerRadius)
-                    .presentationBackground(Material.thick)
             }
+            .interactiveDismissDisabled(true)
         }
     }
 }
@@ -199,7 +222,7 @@ struct CommentWallSheet: View {
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack(spacing: 0) {
-            // Sticky header
+            // Sticky Comment Wall Sheet title
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text("Comment Wall")
@@ -223,7 +246,9 @@ struct CommentWallSheet: View {
             .frame(height: 46)
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Scrollable content
+            Text("")
+            
+            // Scrollable comments
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<20) { index in
@@ -241,52 +266,7 @@ struct CommentWallSheet: View {
     }
 }
 
-struct SimplifiedSpaceCanvasView: View {
-    @State private var isSheetPresented = false
-    @State private var buttonTapped = false
-    
-    var body: some View {
-        ZStack {
-            Color.blue.opacity(0.3).edgesIgnoringSafeArea(.all) // Background
-            
-            VStack {
-                Spacer()
-                
-                Button(action: {
-                    buttonTapped = true
-                    isSheetPresented = true
-                }) {
-                    Text("Tap Me")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.red)
-                        .cornerRadius(10)
-                }
-                .padding(.bottom, 50)
-            }
-            
-            if buttonTapped {
-                Text("Button was tapped!")
-                    .foregroundColor(.green)
-                    .font(.headline)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .transition(.scale)
-            }
-        }
-        .sheet(isPresented: $isSheetPresented) {
-            Text("Sheet Content")
-                .presentationDetents([.medium, .large])
-        }
-    }
-}
 
-struct SimplifiedSpaceCanvasView_Previews: PreviewProvider {
-    static var previews: some View {
-        SimplifiedSpaceCanvasView()
-    }
-}
 
 
 

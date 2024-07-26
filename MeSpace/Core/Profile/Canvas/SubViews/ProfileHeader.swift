@@ -64,9 +64,9 @@ struct ProfileHeader: View {
                                 .opacity(0.3)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .opacity(isHeaderTextVisible ? 1 : 0)
-                        .offset(y: isHeaderTextVisible ? 0 : 20)
-                        .animation(.easeInOut(duration: 0.3), value: isHeaderTextVisible)
+                        .opacity(isHeaderTextVisible || !isBottomSheetVisible ? 1 : 0)
+                        .offset(y: isHeaderTextVisible || !isBottomSheetVisible ? 0 : 20)
+                        .animation(.easeInOut(duration: 0.3), value: isHeaderTextVisible || !isBottomSheetVisible)
                     
                     
                     
@@ -74,13 +74,11 @@ struct ProfileHeader: View {
                         .font(.subheadline)
                         .foregroundColor(isLightMode ? .white : .black)
                         .fontWeight(.semibold)
-                    //                        .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
-                        .opacity(isHeaderTextVisible ? 1 : 0)
-                        .offset(y: isHeaderTextVisible ? 0 : 20)
-                        .animation(.easeInOut(duration: 0.3), value: isHeaderTextVisible)
+                        .opacity(isHeaderTextVisible || !isBottomSheetVisible ? 1 : 0)
+                        .offset(y: isHeaderTextVisible || !isBottomSheetVisible ? 0 : 20)
+                        .animation(.easeInOut(duration: 0.3), value: isHeaderTextVisible || !isBottomSheetVisible)
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.3)) {
-                                //                                isTextWhite.toggle()  // Toggle the profile name color
                                 isLightMode.toggle()
                             }
                         }
