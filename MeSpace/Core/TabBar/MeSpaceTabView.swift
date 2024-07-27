@@ -7,6 +7,8 @@ struct MeSpaceTabView: View {
     
     @State private var isBottomSheetVisible = true
     
+//    @State private var isBottomSheetFullyExpanded = false // track the offset (when the progress is >= 0.99)
+    
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {

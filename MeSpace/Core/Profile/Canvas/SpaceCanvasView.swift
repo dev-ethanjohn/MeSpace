@@ -10,14 +10,14 @@ struct SpaceCanvasView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("flower")
+            Image("ghibli5")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
                 .ignoresSafeArea()
                 .zIndex(0)
-//            
-//            Color.blue.opacity(0.4)
+            
+//            Color(hex: 0x9fbae0)
 //                .ignoresSafeArea()
 //            
             ScrollView {
@@ -164,25 +164,7 @@ struct SpaceCanvasView: View {
             }
             .frame(maxHeight: 90)
             .frame(maxWidth: UIScreen.main.bounds.size.width * 1.0)
-            
-            BlurView()
-                .opacity(isSheetPresented ? 1 : 0)
-                .blur(radius: isSheetPresented ? 0.05 : 0)
-                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.4)
-                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
-            
-            BlurView()
-                .opacity(isSheetPresented ? 1 : 0)
-                .blur(radius: isSheetPresented ? 0.6 : 0)
-                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.16)
-                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
-            
-            BlurView()
-                .opacity(isSheetPresented ? 1 : 0)
-                .blur(radius: isSheetPresented ? 8 : 0)
-                .frame(maxHeight: UIScreen.main.bounds.size.height * 0.08)
-                .animation(.easeInOut(duration: 0.3), value: isSheetPresented)
-            
+
             
             // overlay gradient on contents when is sheet is opened
             LinearGradient(
@@ -191,8 +173,8 @@ struct SpaceCanvasView: View {
                     .init(color: Color(hex: 0x000000).opacity(0.05), location: 0.2),
                     .init(color: Color(hex: 0x000000).opacity(0.15), location: 0.4),
                     .init(color: Color(hex: 0x000000).opacity(0.25), location: 0.6),
-                    .init(color: Color(hex: 0x000000).opacity(0.35), location: 0.8),
-                    .init(color: Color(hex: 0x000000).opacity(0.55), location: 1)
+                    .init(color: Color(hex: 0x000000).opacity(0.45), location: 0.8),
+                    .init(color: Color(hex: 0x000000).opacity(0.65), location: 1)
                 ]),
                 startPoint: .top,
                 endPoint: .bottom

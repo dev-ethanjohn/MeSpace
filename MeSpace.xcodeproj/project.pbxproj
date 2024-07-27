@@ -33,6 +33,9 @@
 		4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */; };
 		4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C782C47AD160083F590 /* SpaceContainer.swift */; };
 		4CDC5C7B2C47E8910083F590 /* CommentWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C7A2C47E8910083F590 /* CommentWall.swift */; };
+		4CDE08652C54F79100E2A783 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE08642C54F79100E2A783 /* Color.swift */; };
+		4CDE08692C551CC800E2A783 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE08682C551CC800E2A783 /* Post.swift */; };
+		4CDE086C2C55210300E2A783 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE086B2C55210300E2A783 /* PostView.swift */; };
 		4CE1AA622C4240A200FE5594 /* SpaceCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA612C4240A200FE5594 /* SpaceCanvasView.swift */; };
 		4CE1AA652C42410300FE5594 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA642C42410300FE5594 /* ProfileHeader.swift */; };
 		4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA662C424FF200FE5594 /* ProfileView.swift */; };
@@ -73,6 +76,9 @@
 		4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterTabBarWrapper.swift; sourceTree = "<group>"; };
 		4CDC5C782C47AD160083F590 /* SpaceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceContainer.swift; sourceTree = "<group>"; };
 		4CDC5C7A2C47E8910083F590 /* CommentWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWall.swift; sourceTree = "<group>"; };
+		4CDE08642C54F79100E2A783 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4CDE08682C551CC800E2A783 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4CDE086B2C55210300E2A783 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		4CE1AA612C4240A200FE5594 /* SpaceCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceCanvasView.swift; sourceTree = "<group>"; };
 		4CE1AA642C42410300FE5594 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		4CE1AA662C424FF200FE5594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDC31822C4FCF7700951575 /* BlurType.swift */,
+				4CDE08642C54F79100E2A783 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 		4C8AB7F62C40009C00E3B190 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4CDE08662C551C7900E2A783 /* Post */,
 				4CE1AA662C424FF200FE5594 /* ProfileView.swift */,
 				4CE1AA602C422BF100FE5594 /* Canvas */,
 				4CE1AA682C42561100FE5594 /* ProfileBottomSheet */,
@@ -361,6 +369,31 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		4CDE08662C551C7900E2A783 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				4CDE086A2C5520DD00E2A783 /* View */,
+				4CDE08672C551C8000E2A783 /* Model */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		4CDE08672C551C8000E2A783 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CDE08682C551CC800E2A783 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4CDE086A2C5520DD00E2A783 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CDE086B2C55210300E2A783 /* PostView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4CE1AA602C422BF100FE5594 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,12 +539,14 @@
 				4CE1AA622C4240A200FE5594 /* SpaceCanvasView.swift in Sources */,
 				4CE1AA752C425BCF00FE5594 /* ContentProfileWrapper.swift in Sources */,
 				4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */,
+				4CDE086C2C55210300E2A783 /* PostView.swift in Sources */,
 				4CDC31872C4FDA8300951575 /* CanvasTabBar.swift in Sources */,
 				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
 				4CE1AA772C425C1D00FE5594 /* ContentProfileInfoView.swift in Sources */,
 				4CB8805E2C4E44B5008C1605 /* ExtraContainer.swift in Sources */,
 				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
+				4CDE08692C551CC800E2A783 /* Post.swift in Sources */,
 				4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */,
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
 				4CA480452C4D49F800874D20 /* LinksContainerView.swift in Sources */,
@@ -520,6 +555,7 @@
 				4CE1AA6C2C42570A00FE5594 /* ContentSheet.swift in Sources */,
 				4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */,
 				4CE1AA912C42CBD600FE5594 /* ExploreView.swift in Sources */,
+				4CDE08652C54F79100E2A783 /* Color.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 				4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
@@ -664,6 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeSpace/Preview Content\"";
+				DEVELOPMENT_TEAM = BCUFVJJD88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -692,6 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeSpace/Preview Content\"";
+				DEVELOPMENT_TEAM = BCUFVJJD88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

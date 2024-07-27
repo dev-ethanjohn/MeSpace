@@ -5,6 +5,8 @@ struct CustomTabView: View {
     @Binding var tabSelection: Int
     @Binding var isProfileSelected: Bool  //State to manage profile toggle
     
+    //    @Binding var isBottomSheetFullyExpanded: Bool
+    
     let tabBarItems: [(normal: String, filled: String)] = [
         ("safari", "safari.fill"),
         ("plus", "plus"),
@@ -12,8 +14,9 @@ struct CustomTabView: View {
     ]
     
     let profileImage: Image?
-
+    
     var body: some View {
+        
         ZStack {
             RoundedRectangle(cornerRadius: 24)
                 .fill(Material.ultraThinMaterial)
@@ -45,7 +48,7 @@ struct CustomTabView: View {
                                         .scaledToFit()
                                         .clipShape(Circle())
                                         .frame(width: 32, height: 32)
-                                      
+                                    
                                 } else {
                                     Image(systemName: tabBarItems[index].filled)
                                         .resizable()
@@ -81,7 +84,7 @@ struct CustomTabView: View {
 
 struct CustomTabView_Previews: PreviewProvider {
     @State static var isProfileSelected = false
-
+    
     static var previews: some View {
         CustomTabView(tabSelection: .constant(1), isProfileSelected: $isProfileSelected, profileImage: Image("profile"))
     }
