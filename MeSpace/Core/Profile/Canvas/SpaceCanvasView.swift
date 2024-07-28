@@ -10,7 +10,7 @@ struct SpaceCanvasView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("ghibli5")
+            Image("sad")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: UIScreen.main.bounds.width * 1.0, maxHeight: UIScreen.main.bounds.height * 1.0)
@@ -252,48 +252,3 @@ struct CommentWallSheet: View {
 
 
 
-
-//                HStack(alignment: .top) {
-//
-//                    Button {
-//                        isSheetPresented = true
-//                    } label: {
-//                        Image(systemName: "text.bubble.fill")
-//                            .imageScale(.medium)
-//                            .foregroundStyle(.white)
-//                            .padding(12)
-//                            .background(Material.ultraThin)
-//                            .clipShape(Circle())
-//                    }
-//
-//                    Spacer()
-//                }
-//                .padding()
-//                .frame(height: 100)
-//                .background(.white)
-
-//                GeometryReader { imageGeometry in
-//                    ZStack {
-//                          Image("ghibli4")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fill)
-//                              .frame(width: imageGeometry.size.width * 1.06, height: 140)
-//
-//                          LinearGradient(
-//                              gradient: Gradient(stops: [
-//                                .init(color: Color(hex: 0x111111).opacity(0.1), location: 0),
-//                                .init(color: Color(hex: 0x111111).opacity(0.2), location: 0.4),
-//                                .init(color: Color(hex: 0x222222).opacity(0.45), location: 0.55),
-//                                .init(color: Color(hex: 0x444444).opacity(0.75), location: 0.70),
-//                                .init(color: Color(hex: 0x444444).opacity(0.95), location: 0.85),
-//                                .init(color: Color(hex: 0x444444).opacity(1), location: 1)
-//                              ]),
-//                              startPoint: .top,
-//                              endPoint: .bottom
-//                          )
-//
-//                        Color.black.opacity(0.20)
-//                      }
-//                      .frame(width: imageGeometry.size.width, height: 140)
-//                      .clipShape(Rectangle())
-//                }

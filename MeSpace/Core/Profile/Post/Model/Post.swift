@@ -24,7 +24,11 @@ struct Post: Identifiable {
             Post(id: 3, imageURL: "street1", author: "only_ej", headline: "", likes: 0, views: 92, isLked: false),
             Post(id: 4, imageURL: "flower", author: "only_ej", headline: "", likes: 0, views: 12, isLked: false),
             Post(id: 5, imageURL: "ghibli5", author: "only_ej", headline: "", likes: 0, views: 45, isLked: false),
-            Post(id: 6, imageURL: "room1", author: "only_ej", headline: "", likes: 0, views: 78, isLked: false)
+            Post(id: 6, imageURL: "room1", author: "only_ej", headline: "", likes: 0, views: 78, isLked: false),
+            Post(id: 7, imageURL: "crowd", author: "only_ej", headline: "", likes: 0, views: 45, isLked: false),
+            Post(id: 8, imageURL: "profileheaderpic", author: "only_ej", headline: "", likes: 0, views: 78, isLked: false),
+            Post(id: 9, imageURL: "still", author: "only_ej", headline: "", likes: 0, views: 45, isLked: false),
+            Post(id: 10, imageURL: "swag", author: "only_ej", headline: "", likes: 0, views: 78, isLked: false)
         ]
     }
     

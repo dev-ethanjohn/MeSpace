@@ -67,11 +67,11 @@ struct PostView: View {
         }
         .frame(width: width)
         .overlay {
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.gray.opacity(0.1), lineWidth: 0.5)
         }
         .background(Color(.systemGray6).opacity(0.2))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
