@@ -4,16 +4,19 @@ struct ContentFilterTabBarWrapper: View {
     @Binding var selectedFilter: TabBarContentFilter
     var animation: Namespace.ID
     let progress: CGFloat
+    @Binding var scrollToTop: Bool
+    
+    @State private var isAnimating: Bool = false
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(TabBarContentFilter.allCases, id: \.self) { filter in
-                ContentFilterTabBarView(filter: filter, selectedFilter: $selectedFilter, animation: animation)
+                ContentFilterTabBarView(filter: filter, selectedFilter: $selectedFilter, animation: animation, scrollToTop: $scrollToTop)
             }
         }
         .padding(.top, progress >= 0.99 ? 10 : 0)
         .frame(height: progress >= 0.99 ? 52 : 44)
-//        .progressBackground(progress: progress)
+        //        .progressBackground(progress: progress)
         .background(Color.white)
     }
 }
@@ -25,6 +28,9 @@ struct ContentFilterTabBarView: View {
     let filter: TabBarContentFilter
     @Binding var selectedFilter: TabBarContentFilter
     var animation: Namespace.ID
+    @Binding var scrollToTop: Bool
+    
+    @State private var isAnimating: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,6 +40,8 @@ struct ContentFilterTabBarView: View {
                 .foregroundColor(selectedFilter == filter ? .black : .gray)
                 .padding(.vertical, 8)
                 .matchedGeometryEffect(id: "text_\(filter)", in: animation)
+                .scaleEffect(isAnimating ? 1.05 : 1.0)
+                .opacity(isAnimating ? 0.7 : 1.0)
             
             ZStack {
                 if selectedFilter == filter {
@@ -54,6 +62,13 @@ struct ContentFilterTabBarView: View {
         .onTapGesture {
             withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                 selectedFilter = filter
+                scrollToTop = true
+                isAnimating = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                withAnimation(.spring(duration: 0.1)) {
+                    isAnimating = false
+                }
             }
         }
     }
@@ -64,14 +79,14 @@ struct ContentFilterTabBarWrapper_Previews: PreviewProvider {
     @Namespace static var animation
     
     static var previews: some View {
-        ContentFilterTabBarWrapper(selectedFilter: .constant(.posts), animation: animation, progress: 0.5)
+        ContentFilterTabBarWrapper(selectedFilter: .constant(.posts), animation: animation, progress: 0.5, scrollToTop: .constant(true))
     }
 }
 
 
 //struct ProgressBackgroundModifier: ViewModifier {
 //    let progress: Double
-//    
+//
 //    func body(content: Content) -> some View {
 //        content
 //            .background(

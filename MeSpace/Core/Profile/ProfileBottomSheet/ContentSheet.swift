@@ -12,9 +12,10 @@ struct ContentSheet: View {
     @State private var startOffset: CGFloat = 0
     @State private var isScrolling: Bool = false
     
+    @State private var scrollToTop: Bool = false // automatic scroll to the top
     
     let columns = 2
-    let spacing: CGFloat = 14
+    let spacing: CGFloat = 10
     
     var body: some View {
         GeometryReader { geometry in
@@ -29,14 +30,15 @@ struct ContentSheet: View {
                             scrollOffset: $scrollViewOffset,
                             startOffset: $startOffset,
                             isScrolling: $isScrolling,
-                            progress: progress
+                            progress: progress,
+                            scrollToTop: $scrollToTop
                         ) {
                             VStack {
                                 WaterfallGrid(items: $posts, columns: columns, spacing: spacing) { $post in
                                     PostView(post: $post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
                                 }
                                 .padding(.top, 48)
-                                .padding(10)
+                                .padding(12)
                                 .background(Color(.white))
                                 
                                 Text("End")
@@ -55,7 +57,7 @@ struct ContentSheet: View {
                                 .frame(height: 50) // Adjust this value to match your tab bar height
                                 .shadow(color: Color.black.opacity(progress >= 0.99 ? 0.16 : 0), radius: 10, x: 0, y: 10)
                             
-                            ContentFilterTabBarWrapper(selectedFilter: $selectedFilter, animation: animation, progress: progress)
+                            ContentFilterTabBarWrapper(selectedFilter: $selectedFilter, animation: animation, progress: progress, scrollToTop: $scrollToTop)
                         }
                         .offset(y: progress >= 0.99 ? -140 : 0)
                         
@@ -123,24 +125,40 @@ struct CustomScrollView<Content: View>: View {
     @Binding var startOffset: CGFloat
     @Binding var isScrolling: Bool
     let progress: CGFloat
+    @Binding var scrollToTop: Bool
     let content: () -> Content
     
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            GeometryReader { geometry in
-                Color.clear
-                    .preference(key: ScrollOffsetKey.self, value: geometry.frame(in: .global).minY)
-            }
-            .frame(height: 0)
-            .onPreferenceChange(ScrollOffsetKey.self) { value in
-                if startOffset == 0 {
-                    startOffset = value
+        ScrollViewReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                GeometryReader { geometry in
+                    Color.clear
+                        .preference(key: ScrollOffsetKey.self, value: geometry.frame(in: .global).minY)
                 }
-                scrollOffset = startOffset - value
-                isScrolling = scrollOffset > 0
+                .frame(height: 0)
+                .onPreferenceChange(ScrollOffsetKey.self) { value in
+                    if startOffset == 0 {
+                        startOffset = value
+                    }
+                    scrollOffset = startOffset - value
+                    isScrolling = scrollOffset > 0
+                }
+                .id("scroll_to_top")
+                
+                content()
+            }
+            .onChange(of: scrollToTop) { _, newValue in
+                if newValue {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        proxy.scrollTo("scroll_to_top", anchor: .top)
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        scrollToTop = false
+                    }
+                }
             }
             
-            content()
         }
         .gesture(DragGesture()
             .onChanged { value in
