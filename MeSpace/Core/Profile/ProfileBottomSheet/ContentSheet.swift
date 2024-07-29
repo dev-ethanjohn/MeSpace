@@ -13,77 +13,85 @@ struct ContentSheet: View {
     @State private var isScrolling: Bool = false
     
     @State private var scrollToTop: Bool = false // automatic scroll to the top
+    @State private var selectedPost: Post? // Track the selected post
     
     let columns = 2
     let spacing: CGFloat = 10
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .top) {
-                VStack(spacing: 0) {
-                    // Header content
-                    headerContent
-                    
-                    ZStack(alignment: .top) {
-                        CustomScrollView(
-                            isFullyExpanded: progress >= 0.99,
-                            scrollOffset: $scrollViewOffset,
-                            startOffset: $startOffset,
-                            isScrolling: $isScrolling,
-                            progress: progress,
-                            scrollToTop: $scrollToTop
-                        ) {
-                            VStack {
-                                WaterfallGrid(items: $posts, columns: columns, spacing: spacing) { $post in
-                                    NavigationLink(destination: OwnPostDetailedView(post: post)) {
+        NavigationStack {
+            GeometryReader { geometry in
+                ZStack(alignment: .top) {
+                    VStack(spacing: 0) {
+                        // Header content
+                        headerContent
+                        
+                        ZStack(alignment: .top) {
+                            CustomScrollView(
+                                isFullyExpanded: progress >= 0.99,
+                                scrollOffset: $scrollViewOffset,
+                                startOffset: $startOffset,
+                                isScrolling: $isScrolling,
+                                progress: progress,
+                                scrollToTop: $scrollToTop
+                            ) {
+                                VStack {
+                                    WaterfallGrid(items: $posts, columns: columns, spacing: spacing) { $post in
                                         PostView(post: $post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
+                                            .matchedGeometryEffect(id: post.id, in: animation)
+                                            .onTapGesture {
+                                                selectedPost = post
+                                            }
                                     }
+                                    .padding(.top, 48)
+                                    .padding(14)
+                                    .background(Color(.white))
+                                    
+                                    Text("End")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                        .padding(.vertical, 20)
+                                        .padding(.bottom, 120)
                                 }
-                                .padding(.top, 48)
-                                .padding(14)
-                                .background(Color(.white))
-                                
-                                Text("End")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                    .padding(.vertical, 20)
-                                    .padding(.bottom, 120)
                             }
-                        }
-                        .offset(y: progress >= 0.99 ? -140 : 0)
-                        
-                        ZStack {
-                            Rectangle()
-                                .fill(Color.white)
-                                .frame(height: 50) // Adjust this value to match your tab bar height
-                                .shadow(color: Color.black.opacity(progress >= 0.99 ? 0.16 : 0), radius: 10, x: 0, y: 10)
+                            .offset(y: progress >= 0.99 ? -140 : 0)
                             
-                            ContentFilterTabBarWrapper(selectedFilter: $selectedFilter, animation: animation, progress: progress, scrollToTop: $scrollToTop)
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.white)
+                                    .frame(height: 50) // Adjust this value to match your tab bar height
+                                    .shadow(color: Color.black.opacity(progress >= 0.99 ? 0.16 : 0), radius: 10, x: 0, y: 10)
+                                
+                                ContentFilterTabBarWrapper(selectedFilter: $selectedFilter, animation: animation, progress: progress, scrollToTop: $scrollToTop)
+                            }
+                            .offset(y: progress >= 0.99 ? -140 : 0)
+                            
                         }
-                        .offset(y: progress >= 0.99 ? -140 : 0)
-                        
                     }
+                    .frame(height: geometry.size.height + (progress >= 0.99 ? 140 : 0))
+                    
+                    Capsule()
+                        .fill(progress >= 0.99 ? Color.black.opacity(0.4) : Color.white.opacity(0.4))
+                        .frame(width: 32, height: 4)
+                        .padding(.top, 8)
+                        .zIndex(1)
                 }
-                .frame(height: geometry.size.height + (progress >= 0.99 ? 140 : 0))
-                
-                Capsule()
-                    .fill(progress >= 0.99 ? Color.black.opacity(0.4) : Color.white.opacity(0.4))
-                    .frame(width: 32, height: 4)
-                    .padding(.top, 8)
-                    .zIndex(1)
             }
-        }
-        .frame(maxWidth: .infinity)
-        .background(Color(.white))
-        .cornerRadius(32)
-        .onChange(of: progress) { _, newProgress in
-            if newProgress < 0.99 {
-              /*  scrollViewOffset = max(0, scrollViewOffset)*/ // Allow keeping upward scroll, reset only if scrolled down
-                scrollViewOffset = 0
-                startOffset = 0 // Reset start offset
-                isScrolling = false // Disable scrolling when progress is less than 0.99
+            .frame(maxWidth: .infinity)
+            .background(Color(.white))
+            .cornerRadius(32)
+            .onChange(of: progress) { _, newProgress in
+                if newProgress < 0.99 {
+                    /*  scrollViewOffset = max(0, scrollViewOffset)*/ // Allow keeping upward scroll, reset only if scrolled down
+                    scrollViewOffset = 0
+                    startOffset = 0 // Reset start offset
+                    isScrolling = false // Disable scrolling when progress is less than 0.99
+                }
             }
+            .sheet(item: $selectedPost) { post in
+                           OwnPostDetailedView(post: post)
+                       }
         }
     }
     
@@ -144,7 +152,7 @@ struct CustomScrollView<Content: View>: View {
                     if startOffset == 0 {
                         startOffset = value
                     }
-                if isFullyExpanded {
+                    if isFullyExpanded {
                         scrollOffset = startOffset - value
                         isScrolling = scrollOffset > 0
                     }
@@ -183,7 +191,7 @@ struct CustomScrollView<Content: View>: View {
                 }
             }
         )
-//        .disabled(!isFullyExpanded && scrollOffset <= 0) // Disable ScrollView when at the top and not fully expanded
+        //        .disabled(!isFullyExpanded && scrollOffset <= 0) // Disable ScrollView when at the top and not fully expanded
         .disabled(!isFullyExpanded)
     }
 }

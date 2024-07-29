@@ -12,6 +12,8 @@ struct PostView: View {
     let width: CGFloat
     @State private var animateHeart = false
     
+    @Namespace var animation
+    
     var body: some View {
         
         //        NavigationLink(destination: OwnPostDetailedView(post: post)) {
@@ -23,7 +25,7 @@ struct PostView: View {
                 .clipped()
                 .cornerRadius(12)
                 .shadow(color: Color.black.opacity(0.24), radius: 1, x: 0, y: 2)
-            
+                .matchedGeometryEffect(id: "image\(post.id)", in: animation)
             
             
             VStack(alignment: .leading, spacing: 0) {
@@ -80,10 +82,10 @@ struct PostView: View {
     //    }
 }
 
-struct PostView_Previews: PreviewProvider {
-    @State static var previewPost = Post.samplePosts()[0]
-    
-    static var previews: some View {
-        PostView(post: $previewPost, width: 100)
-    }
-}
+//struct PostView_Previews: PreviewProvider {
+//    @State static var previewPost = Post.samplePosts()[0]
+//    
+//    static var previews: some View {
+//        PostView(post: $previewPost, width: 100)
+//    }
+//}

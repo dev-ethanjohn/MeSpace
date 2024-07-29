@@ -14,9 +14,10 @@ import UIKit
 struct OwnPostDetailedView: View {
     let post: Post
     @Environment(\.dismiss) private var dismiss
+    @Namespace var animation
     
     var body: some View {
-//        NavigationStack {
+        NavigationStack {
             ZStack (alignment: .bottom)  {
                 ScrollView {
                     LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
@@ -32,6 +33,7 @@ struct OwnPostDetailedView: View {
                                         .scaledToFill()
                                         .frame(width: screenWidth, height: imageHeight)
                                         .clipped()
+                                        .matchedGeometryEffect(id: "image\(post.id)", in: animation)
                                 }
                                 //Aspect ratio
                                 .frame(height: min(UIImage(named: post.imageURL)!.size.height / UIImage(named: post.imageURL)!.size.width * UIScreen.main.bounds.width, 900))
@@ -156,7 +158,7 @@ struct OwnPostDetailedView: View {
             }
 //            .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-//        }
+        }
     }
 }
 
@@ -167,4 +169,3 @@ struct OwnPostDetailedView: View {
 //        }
 //    }
 //}
-
