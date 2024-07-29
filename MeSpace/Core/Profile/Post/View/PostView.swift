@@ -13,6 +13,8 @@ struct PostView: View {
     @State private var animateHeart = false
     
     var body: some View {
+        
+        //        NavigationLink(destination: OwnPostDetailedView(post: post)) {
         VStack(alignment: .leading, spacing: 2) {
             Image(post.imageURL)
                 .resizable()
@@ -21,6 +23,7 @@ struct PostView: View {
                 .clipped()
                 .cornerRadius(12)
                 .shadow(color: Color.black.opacity(0.24), radius: 1, x: 0, y: 2)
+            
             
             
             VStack(alignment: .leading, spacing: 0) {
@@ -34,7 +37,7 @@ struct PostView: View {
                         .font(.caption2)
                         .bold()
                         .lineLimit(1)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
+                    //                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Spacer(minLength: 2)
                     
@@ -73,6 +76,8 @@ struct PostView: View {
         .background(Color(.systemGray6).opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }
+    //
+    //    }
 }
 
 struct PostView_Previews: PreviewProvider {

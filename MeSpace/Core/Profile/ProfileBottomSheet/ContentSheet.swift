@@ -35,10 +35,12 @@ struct ContentSheet: View {
                         ) {
                             VStack {
                                 WaterfallGrid(items: $posts, columns: columns, spacing: spacing) { $post in
-                                    PostView(post: $post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
+                                    NavigationLink(destination: OwnPostDetailedView(post: post)) {
+                                        PostView(post: $post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
+                                    }
                                 }
                                 .padding(.top, 48)
-                                .padding(12)
+                                .padding(14)
                                 .background(Color(.white))
                                 
                                 Text("End")
@@ -142,7 +144,7 @@ struct CustomScrollView<Content: View>: View {
                     if startOffset == 0 {
                         startOffset = value
                     }
-                    if isFullyExpanded {
+                if isFullyExpanded {
                         scrollOffset = startOffset - value
                         isScrolling = scrollOffset > 0
                     }

@@ -29,6 +29,10 @@
 		4CDC31832C4FCF7700951575 /* BlurType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31822C4FCF7700951575 /* BlurType.swift */; };
 		4CDC31852C4FD40400951575 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31842C4FD40400951575 /* BlurView.swift */; };
 		4CDC31872C4FDA8300951575 /* CanvasTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC31862C4FDA8300951575 /* CanvasTabBar.swift */; };
+		4CDC57182C57D49A0042855E /* OwnPostDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC57172C57D49A0042855E /* OwnPostDetailedView.swift */; };
+		4CDC571B2C57DE540042855E /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC571A2C57DE540042855E /* PostHeaderView.swift */; };
+		4CDC571D2C57DF5D0042855E /* PostCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC571C2C57DF5D0042855E /* PostCommentsView.swift */; };
+		4CDC571F2C57E0590042855E /* PostDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC571E2C57E0590042855E /* PostDescriptionView.swift */; };
 		4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */; };
 		4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */; };
 		4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC5C782C47AD160083F590 /* SpaceContainer.swift */; };
@@ -72,6 +76,10 @@
 		4CDC31822C4FCF7700951575 /* BlurType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurType.swift; sourceTree = "<group>"; };
 		4CDC31842C4FD40400951575 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		4CDC31862C4FDA8300951575 /* CanvasTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasTabBar.swift; sourceTree = "<group>"; };
+		4CDC57172C57D49A0042855E /* OwnPostDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPostDetailedView.swift; sourceTree = "<group>"; };
+		4CDC571A2C57DE540042855E /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
+		4CDC571C2C57DF5D0042855E /* PostCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsView.swift; sourceTree = "<group>"; };
+		4CDC571E2C57E0590042855E /* PostDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDescriptionView.swift; sourceTree = "<group>"; };
 		4CDC5C742C47A2E50083F590 /* FollowerDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDataView.swift; sourceTree = "<group>"; };
 		4CDC5C762C47A5160083F590 /* ContentFilterTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterTabBarWrapper.swift; sourceTree = "<group>"; };
 		4CDC5C782C47AD160083F590 /* SpaceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceContainer.swift; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 		4C8AB7F62C40009C00E3B190 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4CDC57142C57C5960042855E /* PostViews */,
 				4CDE08662C551C7900E2A783 /* Post */,
 				4CE1AA662C424FF200FE5594 /* ProfileView.swift */,
 				4CE1AA602C422BF100FE5594 /* Canvas */,
@@ -367,6 +376,41 @@
 			children = (
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		4CDC57142C57C5960042855E /* PostViews */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC57152C57CF410042855E /* OwnPosts */,
+				4CDC57162C57CF5A0042855E /* UserPosts */,
+			);
+			path = PostViews;
+			sourceTree = "<group>";
+		};
+		4CDC57152C57CF410042855E /* OwnPosts */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC57192C57D5310042855E /* SubViews */,
+				4CDC57172C57D49A0042855E /* OwnPostDetailedView.swift */,
+			);
+			path = OwnPosts;
+			sourceTree = "<group>";
+		};
+		4CDC57162C57CF5A0042855E /* UserPosts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserPosts;
+			sourceTree = "<group>";
+		};
+		4CDC57192C57D5310042855E /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC571A2C57DE540042855E /* PostHeaderView.swift */,
+				4CDC571C2C57DF5D0042855E /* PostCommentsView.swift */,
+				4CDC571E2C57E0590042855E /* PostDescriptionView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		4CDE08662C551C7900E2A783 /* Post */ = {
@@ -532,10 +576,12 @@
 			files = (
 				4CDC31832C4FCF7700951575 /* BlurType.swift in Sources */,
 				4CBB94942C4147CB00EA1C40 /* BackgroundView.swift in Sources */,
+				4CDC571B2C57DE540042855E /* PostHeaderView.swift in Sources */,
 				4CDC5C7B2C47E8910083F590 /* CommentWall.swift in Sources */,
 				4CE1AA712C42597100FE5594 /* BottomSheetDragGestureModifier.swift in Sources */,
 				4CDC5C792C47AD160083F590 /* SpaceContainer.swift in Sources */,
 				4C8AB8082C400D8300E3B190 /* LogInView.swift in Sources */,
+				4CDC571F2C57E0590042855E /* PostDescriptionView.swift in Sources */,
 				4CE1AA622C4240A200FE5594 /* SpaceCanvasView.swift in Sources */,
 				4CE1AA752C425BCF00FE5594 /* ContentProfileWrapper.swift in Sources */,
 				4CBB949A2C41492A00EA1C40 /* RegistrationHeaderView.swift in Sources */,
@@ -545,10 +591,12 @@
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
 				4CE1AA772C425C1D00FE5594 /* ContentProfileInfoView.swift in Sources */,
 				4CB8805E2C4E44B5008C1605 /* ExtraContainer.swift in Sources */,
+				4CDC571D2C57DF5D0042855E /* PostCommentsView.swift in Sources */,
 				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
 				4CDE08692C551CC800E2A783 /* Post.swift in Sources */,
 				4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */,
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
+				4CDC57182C57D49A0042855E /* OwnPostDetailedView.swift in Sources */,
 				4CA480452C4D49F800874D20 /* LinksContainerView.swift in Sources */,
 				4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */,
 				4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */,

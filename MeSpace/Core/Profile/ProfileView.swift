@@ -14,162 +14,164 @@ struct ProfileView: View {
     @State private var chevronOffset: CGFloat = 0
     
     var body: some View {
-        GeometryReader { geometry in
-            let progress = calculateProgress(maxOffset: geometry.size.height * 0.15)
-            let screenHeight = geometry.size.height
-            let bottomSheetHeight = screenHeight * 1
-            
-            ZStack {
-                // Base layer: SpaceCanvasView
-                SpaceCanvasView()
-                    .background(.white)
-                    .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
+        NavigationStack {
+            GeometryReader { geometry in
+                let progress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+                let screenHeight = geometry.size.height
+                let bottomSheetHeight = screenHeight * 1
                 
-                // Overlay layer: Bottom sheet and blur effects
-                ZStack(alignment: .top) {
-                    // Dimming overlay
-                    Color.black.opacity(0.16)
-                        .opacity(isBottomSheetVisible ? 1 : 0)
+                ZStack {
+                    // Base layer: SpaceCanvasView
+                    SpaceCanvasView()
+                        .background(.white)
+                        .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
                     
-                    if isBottomSheetVisible {
-                        // Blur and quote
-                        ZStack {
-                            BlurView(removeAllFilters: true)
-                                .blur(radius: 40, opaque: blurType == .freestyle)
-                            
-                            Text("Above all else, guard your heart, for everything you do flows from it. —Proverbs 4:23")
-                                .padding()
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color(.white))
-                                .cornerRadius(10)
-                                .opacity(1 - progress)
-                                .position(x: geometry.size.width / 2, y: textYPosition)
-                                .multilineTextAlignment(.center)
+                    // Overlay layer: Bottom sheet and blur effects
+                    ZStack(alignment: .top) {
+                        // Dimming overlay
+                        Color.black.opacity(0.16)
+                            .opacity(isBottomSheetVisible ? 1 : 0)
+                        
+                        if isBottomSheetVisible {
+                            // Blur and quote
+                            ZStack {
+                                BlurView(removeAllFilters: true)
+                                    .blur(radius: 40, opaque: blurType == .freestyle)
+                                
+                                Text("Above all else, guard your heart, for everything you do flows from it. —Proverbs 4:23")
+                                    .padding()
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color(.white))
+                                    .cornerRadius(10)
+                                    .opacity(1 - progress)
+                                    .position(x: geometry.size.width / 2, y: textYPosition)
+                                    .multilineTextAlignment(.center)
+                            }
+                        }
+                        
+                        // Bottom sheet
+                        VStack {
+                            Spacer()
+                            //                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
+                            ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
+                                .frame(height: bottomSheetHeight)
+                                .offset(y: calculateBottomSheetOffset(screenHeight: screenHeight, bottomSheetHeight: bottomSheetHeight))
+                                .bottomSheetDragGesture(offset: $offset, lastDragValue: $lastDragValue, reader: geometry)
                         }
                     }
+                    .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
+                    .ignoresSafeArea()
                     
-                    // Bottom sheet
+                    // Top layer: ProfileHeader
+                    VStack {
+                        
+                        ProfileHeader(isBottomSheetVisible: $isBottomSheetVisible,
+                                      offset: $offset,
+                                      lastDragValue: $lastDragValue,
+                                      geometry: geometry,
+                                      progress: progress,
+                                      isHeaderTextVisible: $isHeaderTextVisible)
+                        .padding(.top, 50)
+                        Spacer()
+                    }
+                    
                     VStack {
                         Spacer()
-                        //                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
-                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
-                            .frame(height: bottomSheetHeight)
-                            .offset(y: calculateBottomSheetOffset(screenHeight: screenHeight, bottomSheetHeight: bottomSheetHeight))
-                            .bottomSheetDragGesture(offset: $offset, lastDragValue: $lastDragValue, reader: geometry)
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                withAnimation(.spring(response: 0.8, dampingFraction: 0.8)) {
+                                    chevronScale = 0.8
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        isTabBarVisible = true
+                                        chevronOffset = 100 // Move down by 100 points
+                                        offset = 0 // Reset offset to show the tab bar
+                                    }
+                                }
+                            }) {
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
+                                    .fontWeight(.semibold)
+                            }
+                            .frame(width: 60, height: 60)
+                            .background(Material.thin)
+                            .clipShape(Circle())
+                            .scaleEffect(chevronScale)
+                            .offset(y: chevronOffset)
+                            .opacity(isTabBarVisible ? 0 : 1)
+                            .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
+                            .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
+                        }
                     }
-                }
-                .animation(.easeInOut(duration: 0.3), value: isBottomSheetVisible)
-                .ignoresSafeArea()
-                
-                // Top layer: ProfileHeader
-                VStack {
+                    .padding(.trailing, 12)
+                    .padding(.bottom, 48)
                     
-                    ProfileHeader(isBottomSheetVisible: $isBottomSheetVisible,
-                                  offset: $offset,
-                                  lastDragValue: $lastDragValue,
-                                  geometry: geometry,
-                                  progress: progress,
-                                  isHeaderTextVisible: $isHeaderTextVisible)
-                    .padding(.top, 50)
-                    Spacer()
-                }
-                
-                VStack {
-                    Spacer()
-                    HStack {
+                    VStack {
                         Spacer()
-                        Button(action: {
-                            withAnimation(.spring(response: 0.8, dampingFraction: 0.8)) {
-                                chevronScale = 0.8
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    isTabBarVisible = true
-                                    chevronOffset = 100 // Move down by 100 points
-                                    offset = 0 // Reset offset to show the tab bar
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                    chevronScale = 0.8
                                 }
-                            }
-                        }) {
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 36))
-                                .foregroundColor(.black)
-                                .fontWeight(.bold)
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(Material.thick)
-                        .clipShape(Circle())
-                        .scaleEffect(chevronScale)
-                        .offset(y: chevronOffset)
-                        .opacity(isTabBarVisible ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
-                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
-                    }
-                }
-                .padding(.trailing, 12)
-                .padding(.bottom, 48)
-                
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                                chevronScale = 0.8
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    isTabBarVisible = true
-                                    chevronOffset = 100 // Move down by 100 points
-                                    offset = 0 // Reset offset to show the tab bar
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        isTabBarVisible = true
+                                        chevronOffset = 100 // Move down by 100 points
+                                        offset = 0 // Reset offset to show the tab bar
+                                    }
                                 }
+                            }) {
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 36))
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
                             }
-                        }) {
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 36))
-                                .foregroundColor(.black)
-                                .fontWeight(.bold)
+                            .frame(width: 60, height: 60)
+                            .background(Material.ultraThin)
+                            .clipShape(Circle())
+                            .scaleEffect(chevronScale)
+                            .offset(y: chevronOffset)
+                            .opacity(isTabBarVisible ? 0 : 1)
+                            .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
+                            .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
                         }
-                        .frame(width: 60, height: 60)
-                        .background(Material.thick)
-                        .clipShape(Circle())
-                        .scaleEffect(chevronScale)
-                        .offset(y: chevronOffset)
-                        .opacity(isTabBarVisible ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
-                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
                     }
+                    .padding(.trailing, 12)
+                    .padding(.bottom, 48)
+                    
                 }
-                .padding(.trailing, 12)
-                .padding(.bottom, 48)
-                
-            }
-            .edgesIgnoringSafeArea(.all)
-//            .onChange(of: offset) { _, newOffset in
-//                let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
-//                withAnimation(.easeInOut(duration: 0.3)) {
-//                    isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
-//                    isTabBarVisible = !(newProgress >= 0.99 && isBottomSheetVisible)
-//                }
-//            }
-            .onChange(of: offset) { _, newOffset in
-                         let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
-                         withAnimation(.easeInOut(duration: 0.3)) {
-                             isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
-                             if !(newProgress >= 0.99 && isBottomSheetVisible) {
-                                 isTabBarVisible = true
-                                 chevronScale = 1.0
-                                 chevronOffset = 0
-                             } else {
-                                 isTabBarVisible = false
-                             }
-                         }
-                     }
-            .onChange(of: isBottomSheetVisible) { _, newValue in
-                if !newValue {
+                .edgesIgnoringSafeArea(.all)
+                //            .onChange(of: offset) { _, newOffset in
+                //                let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+                //                withAnimation(.easeInOut(duration: 0.3)) {
+                //                    isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
+                //                    isTabBarVisible = !(newProgress >= 0.99 && isBottomSheetVisible)
+                //                }
+                //            }
+                .onChange(of: offset) { _, newOffset in
+                    let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
                     withAnimation(.easeInOut(duration: 0.3)) {
-                        isHeaderTextVisible = true
-                        offset = 0
+                        isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
+                        if !(newProgress >= 0.99 && isBottomSheetVisible) {
+                            isTabBarVisible = true
+                            chevronScale = 1.0
+                            chevronOffset = 0
+                        } else {
+                            isTabBarVisible = false
+                        }
+                    }
+                }
+                .onChange(of: isBottomSheetVisible) { _, newValue in
+                    if !newValue {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            isHeaderTextVisible = true
+                            offset = 0
+                        }
                     }
                 }
             }
