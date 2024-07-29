@@ -80,7 +80,7 @@ struct ProfileView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                            withAnimation(.spring(response: 0.8, dampingFraction: 0.8)) {
                                 chevronScale = 0.8
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

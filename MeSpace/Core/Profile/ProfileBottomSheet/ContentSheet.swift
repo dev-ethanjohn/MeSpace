@@ -77,7 +77,8 @@ struct ContentSheet: View {
         .cornerRadius(32)
         .onChange(of: progress) { _, newProgress in
             if newProgress < 0.99 {
-                scrollViewOffset = max(0, scrollViewOffset) // Allow keeping upward scroll, reset only if scrolled down
+              /*  scrollViewOffset = max(0, scrollViewOffset)*/ // Allow keeping upward scroll, reset only if scrolled down
+                scrollViewOffset = 0
                 startOffset = 0 // Reset start offset
                 isScrolling = false // Disable scrolling when progress is less than 0.99
             }
@@ -141,15 +142,17 @@ struct CustomScrollView<Content: View>: View {
                     if startOffset == 0 {
                         startOffset = value
                     }
-                    scrollOffset = startOffset - value
-                    isScrolling = scrollOffset > 0
+                    if isFullyExpanded {
+                        scrollOffset = startOffset - value
+                        isScrolling = scrollOffset > 0
+                    }
                 }
                 .id("scroll_to_top")
                 
                 content()
             }
             .onChange(of: scrollToTop) { _, newValue in
-                if newValue {
+                if newValue && isFullyExpanded {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         proxy.scrollTo("scroll_to_top", anchor: .top)
                     }
@@ -158,6 +161,15 @@ struct CustomScrollView<Content: View>: View {
                     }
                 }
             }
+            .simultaneousGesture(
+                DragGesture()
+                    .onChanged { _ in
+                        if !isFullyExpanded {
+                            startOffset = 0
+                            scrollOffset = 0
+                        }
+                    }
+            )
             
         }
         .gesture(DragGesture()
@@ -169,7 +181,8 @@ struct CustomScrollView<Content: View>: View {
                 }
             }
         )
-        .disabled(!isFullyExpanded && scrollOffset <= 0) // Disable ScrollView when at the top and not fully expanded
+//        .disabled(!isFullyExpanded && scrollOffset <= 0) // Disable ScrollView when at the top and not fully expanded
+        .disabled(!isFullyExpanded)
     }
 }
 
