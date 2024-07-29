@@ -1,8 +1,4 @@
-
 import SwiftUI
-
-
-
 
 struct ProfileView: View {
     @State private var offset: CGFloat = 0
@@ -10,8 +6,12 @@ struct ProfileView: View {
     @Binding var isBottomSheetVisible: Bool
     @State private var isHeaderTextVisible: Bool = false
     @State private var blurType: BlurType = .freestyle
+    @Binding var isTabBarVisible: Bool // track visibility of the customtabview
     
     private let textYPosition: CGFloat = 152 // Adjust this value as needed
+    
+    @State private var chevronScale: CGFloat = 1.0
+    @State private var chevronOffset: CGFloat = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,7 +52,7 @@ struct ProfileView: View {
                     // Bottom sheet
                     VStack {
                         Spacer()
-//                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
+                        //                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
                         ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
                             .frame(height: bottomSheetHeight)
                             .offset(y: calculateBottomSheetOffset(screenHeight: screenHeight, bottomSheetHeight: bottomSheetHeight))
@@ -74,14 +74,97 @@ struct ProfileView: View {
                     .padding(.top, 50)
                     Spacer()
                 }
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                chevronScale = 0.8
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    isTabBarVisible = true
+                                    chevronOffset = 100 // Move down by 100 points
+                                    offset = 0 // Reset offset to show the tab bar
+                                }
+                            }
+                        }) {
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 36))
+                                .foregroundColor(.black)
+                                .fontWeight(.bold)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(Material.thick)
+                        .clipShape(Circle())
+                        .scaleEffect(chevronScale)
+                        .offset(y: chevronOffset)
+                        .opacity(isTabBarVisible ? 0 : 1)
+                        .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
+                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
+                    }
+                }
+                .padding(.trailing, 12)
+                .padding(.bottom, 48)
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                chevronScale = 0.8
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    isTabBarVisible = true
+                                    chevronOffset = 100 // Move down by 100 points
+                                    offset = 0 // Reset offset to show the tab bar
+                                }
+                            }
+                        }) {
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 36))
+                                .foregroundColor(.black)
+                                .fontWeight(.bold)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(Material.thick)
+                        .clipShape(Circle())
+                        .scaleEffect(chevronScale)
+                        .offset(y: chevronOffset)
+                        .opacity(isTabBarVisible ? 0 : 1)
+                        .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
+                        .shadow(color: Color.black.opacity(0.24), radius: 3, x: 0, y: 3)
+                    }
+                }
+                .padding(.trailing, 12)
+                .padding(.bottom, 48)
+                
             }
             .edgesIgnoringSafeArea(.all)
+//            .onChange(of: offset) { _, newOffset in
+//                let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+//                withAnimation(.easeInOut(duration: 0.3)) {
+//                    isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
+//                    isTabBarVisible = !(newProgress >= 0.99 && isBottomSheetVisible)
+//                }
+//            }
             .onChange(of: offset) { _, newOffset in
-                let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
-                }
-            }
+                         let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+                         withAnimation(.easeInOut(duration: 0.3)) {
+                             isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
+                             if !(newProgress >= 0.99 && isBottomSheetVisible) {
+                                 isTabBarVisible = true
+                                 chevronScale = 1.0
+                                 chevronOffset = 0
+                             } else {
+                                 isTabBarVisible = false
+                             }
+                         }
+                     }
             .onChange(of: isBottomSheetVisible) { _, newValue in
                 if !newValue {
                     withAnimation(.easeInOut(duration: 0.3)) {

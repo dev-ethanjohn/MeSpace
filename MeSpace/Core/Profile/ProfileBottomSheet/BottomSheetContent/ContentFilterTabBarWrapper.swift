@@ -13,6 +13,7 @@ struct ContentFilterTabBarWrapper: View {
         }
         .padding(.top, progress >= 0.99 ? 10 : 0)
         .frame(height: progress >= 0.99 ? 52 : 44)
+//        .progressBackground(progress: progress)
         .background(Color.white)
     }
 }
@@ -66,3 +67,23 @@ struct ContentFilterTabBarWrapper_Previews: PreviewProvider {
         ContentFilterTabBarWrapper(selectedFilter: .constant(.posts), animation: animation, progress: 0.5)
     }
 }
+
+
+//struct ProgressBackgroundModifier: ViewModifier {
+//    let progress: Double
+//    
+//    func body(content: Content) -> some View {
+//        content
+//            .background(
+//                progress >= 0.99
+//                    ? AnyShapeStyle(Material.thin)
+//                    : AnyShapeStyle(Color.white)
+//            )
+//    }
+//}
+//
+//extension View {
+//    func progressBackground(progress: Double) -> some View {
+//        self.modifier(ProgressBackgroundModifier(progress: progress))
+//    }
+//}

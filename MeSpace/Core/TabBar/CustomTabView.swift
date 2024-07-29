@@ -24,10 +24,10 @@ struct CustomTabView: View {
                     Capsule()
                         .fill(Color.black.opacity(0.5))
                 )
-                .frame(width: UIScreen.main.bounds.width * 0.48, height: 48)
+                .frame(width: UIScreen.main.bounds.width * 0.43, height: 44)
                 .shadow(color: Color.black.opacity(0.2), radius: 2, x: 0, y: 3)
             
-            HStack(spacing: 36) {
+            HStack(spacing: 33) {
                 ForEach(0..<3, id: \.self) { index in
                     Button(action: {
                         withAnimation(.spring()) {
