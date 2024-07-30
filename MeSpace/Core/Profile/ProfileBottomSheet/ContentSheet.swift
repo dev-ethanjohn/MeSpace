@@ -44,7 +44,7 @@ struct ContentSheet: View {
                                             }
                                     }
                                     .padding(.top, 48)
-                                    .padding(14)
+                                    .padding(12)
                                     .background(Color(.white))
                                     
                                     Text("End")
@@ -92,7 +92,11 @@ struct ContentSheet: View {
             .sheet(item: $selectedPost) { post in
                            OwnPostDetailedView(post: post)
                        }
+
         }
+//        .sheet(item: $selectedPost) { post in
+//                       OwnPostDetailedView(post: post)
+//                   }
     }
     
     private var headerContent: some View {

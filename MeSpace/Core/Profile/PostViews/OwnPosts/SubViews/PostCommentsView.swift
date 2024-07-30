@@ -22,7 +22,7 @@ struct PostCommentsView: View {
             VStack {
                 
                 HStack(alignment: .top, spacing: 12) {
-                    Image("max_verstappen")
+                    Image("still")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 32, height: 32)

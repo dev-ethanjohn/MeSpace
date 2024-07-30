@@ -70,7 +70,7 @@ struct PostDescriptionView: View {
                     }
                   
                 }
-                .font(.subheadline)
+//                .font(.subheadline)
                
                 
                 Spacer()

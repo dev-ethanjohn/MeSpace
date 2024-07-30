@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0508482C58866500A6DFBE /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0508472C58866500A6DFBE /* CommentInputView.swift */; };
 		4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */; };
 		4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E22C3FB34200E3B190 /* ContentView.swift */; };
 		4C8AB7E52C3FB34500E3B190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0508472C58866500A6DFBE /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
 		4C8AB7DD2C3FB34200E3B190 /* MeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceApp.swift; sourceTree = "<group>"; };
 		4C8AB7E22C3FB34200E3B190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0508462C58837E00A6DFBE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4C0508472C58866500A6DFBE /* CommentInputView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		4C8AB7D42C3FB34200E3B190 = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +391,7 @@
 		4CDC57142C57C5960042855E /* PostViews */ = {
 			isa = PBXGroup;
 			children = (
+				4C0508462C58837E00A6DFBE /* Shared */,
 				4CDC57152C57CF410042855E /* OwnPosts */,
 				4CDC57162C57CF5A0042855E /* UserPosts */,
 			);
@@ -611,6 +622,7 @@
 				4CDC31852C4FD40400951575 /* BlurView.swift in Sources */,
 				4CE1AA812C425EE400FE5594 /* TabBarContentFilter.swift in Sources */,
 				4CBB94A02C4171F200EA1C40 /* CustomTabView.swift in Sources */,
+				4C0508482C58866500A6DFBE /* CommentInputView.swift in Sources */,
 				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
 				4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */,
 				4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */,

@@ -1,13 +1,3 @@
-//
-//  OwnPostDetailedView.swift
-//  MeSpace
-//
-//  Created by Ethan John Paguntalan on 7/29/24.
-//
-
-
-
-
 import SwiftUI
 import UIKit
 
@@ -16,156 +6,169 @@ struct OwnPostDetailedView: View {
     @Environment(\.dismiss) private var dismiss
     @Namespace var animation
     
+    @State private var commentText: String = ""
+    @State private var rotationDegrees: Double = 0
+    @State private var isDragging = false
+
+    
     var body: some View {
         NavigationStack {
-            ZStack (alignment: .bottom)  {
+            ZStack(alignment: .bottom) {
                 ScrollView {
                     LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                         Section {
-                            if let uiImage = UIImage(named: post.imageURL) {
-                                GeometryReader { geometry in
-                                    let screenWidth = geometry.size.width
-                                    let aspectRatio = uiImage.size.height / uiImage.size.width
-                                    let imageHeight = min(screenWidth * aspectRatio, 900) // Ensure the height doesn't exceed 600
-                                    
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: screenWidth, height: imageHeight)
-                                        .clipped()
-                                        .matchedGeometryEffect(id: "image\(post.id)", in: animation)
-                                }
-                                //Aspect ratio
-                                .frame(height: min(UIImage(named: post.imageURL)!.size.height / UIImage(named: post.imageURL)!.size.width * UIScreen.main.bounds.width, 900))
-                            } else {
-                                // If image still loads
-                                Color.gray
-                                    .frame(height: 200)
-                            }
+                            postImageView
                             PostDescriptionView()
                         } header: {
                             PostHeaderView()
                         }
                         
-                        //MARK: COMMENTS
                         PostCommentsView()
                     }
                     .padding(0)
                 }
-                .background(Color(.systemGray) .opacity(0.1))
+                .background(Color(.systemGray).opacity(0.1))
                 .scrollIndicators(.hidden)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         HStack(spacing: 8) {
                             Button(action: {
-                          
-                                dismiss()
+                                dismissView()
                             }) {
                                 Image(systemName: "chevron.backward")
-                                    .fontWeight(.medium)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .rotationEffect(.degrees(rotationDegrees))
+                                    .animation(.spring(response: 0.2, dampingFraction: 0.8, blendDuration: 0.1), value: rotationDegrees)
                             }
                             
-                            HStack(spacing: 12) {
-                                Image("ej")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 28, height: 28)
-                                    .clipShape(Circle())
-                                
-                                VStack(alignment: .leading, spacing: -2) {
-                                    Text("Hoshi Taiwan ☘️")
-                                        .font(.subheadline)
-                                        .fontWeight(.bold)
-                                    Text("@hoshi_tw")
-                                        .font(.footnote)
-                                        .foregroundStyle(Color(.darkGray))
-                                }
-                            }
+                            userInfoView
                         }
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack(spacing: 0) {
-                            Button(action: {
-                                // Action for follow button
-                            }) {
-                                Text("Follow")
-                                    .padding(.vertical, 4)
-                                    .padding(.horizontal, 12)
-                                    .fontWeight(.bold)
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                    .background(Color.black)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                            }
-                            
-                            Button(action: {
-                                // Action for search button
-                            }) {
-                                Image(systemName: "magnifyingglass")
-                                    .fontWeight(.medium)
-                            }
+                        Button(action: {
+                            // Action for search button
+                        }) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
                         }
                     }
                 }
-                .toolbarBackground(Color.white, for: .navigationBar) // Set navigation bar background
-                .toolbarBackground(.visible, for: .navigationBar) // Ensure visibility
+                .toolbarBackground(Color.white, for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
                 .tint(.black)
-                .ignoresSafeArea(.container, edges: .bottom)
                 
-                
-                VStack {
-                    HStack {
-                        TextField("Add comment", text: .constant(""))
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                            .foregroundStyle(Color(.black))
-                            
-                            .font(.subheadline)
-//                            .padding(.top, 0)
-                            .padding(.horizontal, 16)
-                            .frame(minHeight: 36)
-                            .background(Color(.systemGray5).opacity(0.7))
-                            .clipShape(.capsule)
-                        
-                        Button(action: {
-                            // Like action
-                        }) {
-                            Image(systemName: "heart")
-                                .font(.title2)
-                                .padding(.leading, 10)
-                        }
-                        
-                        Button(action: {
-                            // Share action
-                        }) {
-                            Image(systemName: "paperplane")
-                                .font(.title2)
-                                .padding(.leading, 10)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 8)
-                }
-                .tint(.black)
-                .frame(maxHeight: UIScreen.main.bounds.height * 0.06)
-                .padding(.bottom, 0)
-                .padding(.horizontal)
-                .background(Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 3, x: 0, y: -1)
-                .ignoresSafeArea(edges: .bottom) // Ensures the bottom sheet ignores safe area
-                
+                CommentInputView(commentText: $commentText)
+                    .ignoresSafeArea(edges: .bottom)
             }
-//            .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+//            .gesture(dragGesture)
+ 
+        }
+        .gesture(dragGesture)
+        .transition(.asymmetric(
+            insertion: .identity,
+            removal: .opacity.combined(with: .move(edge: .trailing))
+        ))
+    }
+    
+    private var postImageView: some View {
+        Group {
+            if let uiImage = UIImage(named: post.imageURL) {
+                GeometryReader { geometry in
+                    let screenWidth = geometry.size.width
+                    let aspectRatio = CGFloat(uiImage.size.height) / CGFloat(uiImage.size.width)
+                    let imageHeight = min(screenWidth * aspectRatio, 900)
+                    
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: screenWidth, height: imageHeight)
+                        .clipped()
+                        .matchedGeometryEffect(id: "image\(post.id)", in: animation)
+                }
+                .frame(height: calculateImageHeight(for: uiImage))
+            } else {
+                Color.gray
+                    .frame(height: 200)
+            }
+        }
+    }
+    
+    private var dragGesture: some Gesture {
+        DragGesture()
+                  .onChanged { value in
+                      let dragDistance = value.translation.height
+                      let rotationThreshold: CGFloat = 10
+
+                      // Rotate to -90 degrees if dragged past the threshold
+                      withAnimation(.spring(response: 0.2, dampingFraction: 0.7)) {
+                          rotationDegrees = dragDistance > rotationThreshold ? -90 : 0
+                      }
+                  }
+                  .onEnded { value in
+                      let dismissThreshold: CGFloat = 10 // Adjust this value as needed
+                      if value.translation.height > dismissThreshold || value.predictedEndTranslation.height > dismissThreshold {
+                          dismissView()
+                      } else {
+                          // Always reset to 0 degrees if not dismissing
+                          withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                              rotationDegrees = 90
+                          }
+                      }
+                  }
+     }
+     
+     private func dismissView() {
+         withAnimation(.spring(response: 0.2, dampingFraction: 0.7, blendDuration: 0.1)) {
+             rotationDegrees = -90
+         }
+         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+             dismiss()
+         }
+     }
+      
+    
+    private func calculateImageHeight(for image: UIImage) -> CGFloat {
+        let imageWidth = CGFloat(image.size.width)
+        let imageHeight = CGFloat(image.size.height)
+        let aspectRatio = imageHeight / imageWidth
+        let screenWidth = UIScreen.main.bounds.width
+        let calculatedHeight = CGFloat(screenWidth) * aspectRatio
+        return min(calculatedHeight, 900)
+    }
+    
+    private var userInfoView: some View {
+        HStack(spacing: 12) {
+            Image("ej")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 28, height: 28)
+                .clipShape(Circle())
+            
+            VStack(alignment: .leading, spacing: -2) {
+                Text("Ethan John Paguntalan 💻")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                Text("@only_ej")
+                    .font(.footnote)
+                    .foregroundStyle(Color(.darkGray))
+            }
         }
     }
 }
 
-//struct ExploreUserPostView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            OwnPostDetailedView(imageName: "nightbridge") // Replace with your actual image asset name
-//        }
-//    }
-//}
+
+extension AnyTransition {
+    static var smoothDismissal: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: .identity,
+            removal: .opacity.combined(with: .move(edge: .trailing))
+        )
+    }
+}
+
+
