@@ -1,5 +1,7 @@
 import SwiftUI
 
+import SwiftUI
+
 struct ProfileHeader: View {
     @Binding var isBottomSheetVisible: Bool
     @Binding var offset: CGFloat
@@ -10,6 +12,8 @@ struct ProfileHeader: View {
     
     @State private var isLightMode: Bool = true
     @State private var isPressed: Bool = false //toggle transition (for button left)
+    
+    @State private var isMenuPresented: Bool = false
     
     var body: some View {
         VStack  {
@@ -87,6 +91,7 @@ struct ProfileHeader: View {
                 
                 Button(action: {
                     // Add action for menu button
+                    isMenuPresented = true
                 }) {
                     Image(systemName: "line.3.horizontal")
                         .padding()
@@ -95,6 +100,10 @@ struct ProfileHeader: View {
                         .background(Color(.black))
                         .clipShape(RoundedRectangle(cornerRadius: 32))
                 }
+                .sheet(isPresented: $isMenuPresented) {
+                    MenuView()
+                }
+                
             }
             .padding(.horizontal)
         }
@@ -120,5 +129,36 @@ struct TestCanvasHeader_Previews: PreviewProvider {
     }
 }
 
-
-
+struct MenuView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                Section(header: Text("Account")) {
+                    Button("Profile Settings") { }
+                    Button("Notifications") { }
+                    Button("Privacy") { }
+                }
+                
+                Section(header: Text("Support")) {
+                    Button("Help Center") { }
+                    Button("Report a Problem") { }
+                }
+                
+                Section {
+                    Button("Log Out", role: .destructive) { }
+                }
+            }
+            .navigationTitle("Menu")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+}

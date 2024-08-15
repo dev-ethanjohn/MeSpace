@@ -13,10 +13,12 @@ struct ProfileView: View {
     @State private var chevronScale: CGFloat = 1.0
     @State private var chevronOffset: CGFloat = 0
     
+    @State private var isMenuActive: Bool = false
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
-                let progress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+                let progress = calculateProgress(maxOffset: geometry.size.height * 0.1)
                 let screenHeight = geometry.size.height
                 let bottomSheetHeight = screenHeight * 1
                 
@@ -54,7 +56,7 @@ struct ProfileView: View {
                         VStack {
                             Spacer()
                             //                        ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
-                            ContentSheet(progress: progress, maxOffset: screenHeight * 0.15)
+                            ContentSheet(progress: progress, maxOffset: screenHeight * 0.1)
                                 .frame(height: bottomSheetHeight)
                                 .offset(y: calculateBottomSheetOffset(screenHeight: screenHeight, bottomSheetHeight: bottomSheetHeight))
                                 .bottomSheetDragGesture(offset: $offset, lastDragValue: $lastDragValue, reader: geometry)
@@ -65,16 +67,16 @@ struct ProfileView: View {
                     
                     // Top layer: ProfileHeader
                     VStack {
-                        
-                        ProfileHeader(isBottomSheetVisible: $isBottomSheetVisible,
-                                      offset: $offset,
-                                      lastDragValue: $lastDragValue,
-                                      geometry: geometry,
-                                      progress: progress,
-                                      isHeaderTextVisible: $isHeaderTextVisible)
-                        .padding(.top, 50)
-                        Spacer()
-                    }
+                                          
+                                          ProfileHeader(isBottomSheetVisible: $isBottomSheetVisible,
+                                                        offset: $offset,
+                                                        lastDragValue: $lastDragValue,
+                                                        geometry: geometry,
+                                                        progress: progress,
+                                                        isHeaderTextVisible: $isHeaderTextVisible)
+                                          .padding(.top, 50)
+                                          Spacer()
+                                      }
                     
                     VStack {
                         Spacer()
@@ -154,7 +156,7 @@ struct ProfileView: View {
                 //                }
                 //            }
                 .onChange(of: offset) { _, newOffset in
-                    let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.15)
+                    let newProgress = calculateProgress(maxOffset: geometry.size.height * 0.1)
                     withAnimation(.easeInOut(duration: 0.3)) {
                         isHeaderTextVisible = newProgress >= 0.99 && isBottomSheetVisible
                         if !(newProgress >= 0.99 && isBottomSheetVisible) {
@@ -184,7 +186,7 @@ struct ProfileView: View {
     
     private func calculateBottomSheetOffset(screenHeight: CGFloat, bottomSheetHeight: CGFloat) -> CGFloat {
         if isBottomSheetVisible {
-            return max(0, screenHeight * 0.175 - offset) // Prevent negative offset
+            return max(0, screenHeight * 0.225 - offset) // Prevent negative offset
         } else {
             return screenHeight
         }

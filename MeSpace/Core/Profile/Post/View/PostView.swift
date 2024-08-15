@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct PostView: View {
-    @Binding var post: Post
+    @State var post: Post
     let width: CGFloat
     @State private var animateHeart = false
     
     @Namespace var animation
+    
+    init(post: Post, width: CGFloat) {
+          self._post = State(initialValue: post)
+          self.width = width
+      }
     
     var body: some View {
         

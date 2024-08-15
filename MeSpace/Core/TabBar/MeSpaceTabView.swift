@@ -1,28 +1,23 @@
 import SwiftUI
 
 struct MeSpaceTabView: View {
-    
     @State private var selectedTab = 1
-    @State private var isProfileSelected = true
-    
+    @State private var isProfileView = true
     @State private var isBottomSheetVisible = true
-    @State private var isTabBarVisible = true // accepts the binding
-    
-//    @State private var isBottomSheetFullyExpanded = false // track the offset (when the progress is >= 0.99)
+    @State private var isTabBarVisible = true
     
     var body: some View {
         ZStack {
-            
             TabView(selection: $selectedTab) {
-                ExploreView()
-                    .tag(1)
-                    .onTapGesture {
-                        if selectedTab == 1 {
-                            withAnimation(.smooth) {
-                                isProfileSelected.toggle()
-                            }
-                        }
+                ZStack {
+                    ExploreView(isTabBarVisible: $isTabBarVisible)
+                    
+                    if isProfileView {
+                        ProfileView(isBottomSheetVisible: $isBottomSheetVisible, isTabBarVisible: $isTabBarVisible)
+                            .transition(.move(edge: .bottom))
                     }
+                }
+                .tag(1)
                 
                 Text("Create")
                     .tag(2)
@@ -36,23 +31,17 @@ struct MeSpaceTabView: View {
             
             VStack {
                 Spacer()
-                
-            
-                    CustomTabView(tabSelection: $selectedTab, isProfileSelected: $isProfileSelected, profileImage: Image("ej"))
+                if isTabBarVisible {
+                    CustomTabView(tabSelection: $selectedTab, isProfileView: $isProfileView, profileImage: Image("ej"))
                         .edgesIgnoringSafeArea(.bottom)
                         .frame(maxWidth: .infinity)
                         .offset(y: isBottomSheetVisible ? 0 : UIScreen.main.bounds.height)
                         .offset(y: isTabBarVisible ? 0 : UIScreen.main.bounds.height)
                         .animation(.spring(), value: isBottomSheetVisible)
-            
+                }
             }
+            .animation(.spring(), value: isTabBarVisible)
             .zIndex(1)
-            
-            if isProfileSelected {
-                ProfileView(isBottomSheetVisible: $isBottomSheetVisible, isTabBarVisible: $isTabBarVisible)
-                    .transition(.move(edge: .bottom))
-                    .zIndex(0)
-            }
         }
     }
 }
@@ -62,9 +51,3 @@ struct MeSpaceTabView_Previews: PreviewProvider {
         MeSpaceTabView()
     }
 }
-
-
-
-
-
-

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4C0508482C58866500A6DFBE /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0508472C58866500A6DFBE /* CommentInputView.swift */; };
+		4C05084A2C5924F800A6DFBE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0508492C5924F700A6DFBE /* Test.swift */; };
+		4C05084D2C59F12400A6DFBE /* ExplorePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05084C2C59F12400A6DFBE /* ExplorePost.swift */; };
+		4C05084F2C5A2A6900A6DFBE /* ExplorePostDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05084E2C5A2A6900A6DFBE /* ExplorePostDetailedView.swift */; };
 		4C8AB7E12C3FB34200E3B190 /* MeSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */; };
 		4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E22C3FB34200E3B190 /* ContentView.swift */; };
 		4C8AB7E52C3FB34500E3B190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8AB7E42C3FB34500E3B190 /* Assets.xcassets */; };
@@ -51,10 +54,14 @@
 		4CE1AA812C425EE400FE5594 /* TabBarContentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA802C425EE400FE5594 /* TabBarContentFilter.swift */; };
 		4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA8E2C4260B400FE5594 /* PostEngagementView.swift */; };
 		4CE1AA912C42CBD600FE5594 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1AA902C42CBD600FE5594 /* ExploreView.swift */; };
+		4CFF0EA52C65DE5300C04302 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF0EA42C65DE5300C04302 /* UserAuthentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C0508472C58866500A6DFBE /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
+		4C0508492C5924F700A6DFBE /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		4C05084C2C59F12400A6DFBE /* ExplorePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePost.swift; sourceTree = "<group>"; };
+		4C05084E2C5A2A6900A6DFBE /* ExplorePostDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostDetailedView.swift; sourceTree = "<group>"; };
 		4C8AB7DD2C3FB34200E3B190 /* MeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8AB7E02C3FB34200E3B190 /* MeSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSpaceApp.swift; sourceTree = "<group>"; };
 		4C8AB7E22C3FB34200E3B190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +106,7 @@
 		4CE1AA802C425EE400FE5594 /* TabBarContentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContentFilter.swift; sourceTree = "<group>"; };
 		4CE1AA8E2C4260B400FE5594 /* PostEngagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEngagementView.swift; sourceTree = "<group>"; };
 		4CE1AA902C42CBD600FE5594 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		4CFF0EA42C65DE5300C04302 /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,15 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		4C05084B2C59EE4D00A6DFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C05084C2C59F12400A6DFBE /* ExplorePost.swift */,
+				4C05084E2C5A2A6900A6DFBE /* ExplorePostDetailedView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4C8AB7D42C3FB34200E3B190 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +156,7 @@
 		4C8AB7DF2C3FB34200E3B190 /* MeSpace */ = {
 			isa = PBXGroup;
 			children = (
+				4CFF0EA12C65DE2100C04302 /* Test */,
 				4C8AB7EE2C3FF89200E3B190 /* App */,
 				4C8AB7EF2C3FF8A000E3B190 /* Core */,
 				4C8AB7F22C3FF8B500E3B190 /* Extensions */,
@@ -278,6 +296,7 @@
 		4C8AB7FB2C4000EC00E3B190 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				4C05084B2C59EE4D00A6DFBE /* Model */,
 				4CE1AA902C42CBD600FE5594 /* ExploreView.swift */,
 			);
 			path = Explore;
@@ -420,6 +439,7 @@
 				4CDC571A2C57DE540042855E /* PostHeaderView.swift */,
 				4CDC571C2C57DF5D0042855E /* PostCommentsView.swift */,
 				4CDC571E2C57E0590042855E /* PostDescriptionView.swift */,
+				4C0508492C5924F700A6DFBE /* Test.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -515,6 +535,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4CFF0EA12C65DE2100C04302 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF0EA22C65DE2B00C04302 /* UserAuth */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		4CFF0EA22C65DE2B00C04302 /* UserAuth */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF0EA42C65DE5300C04302 /* UserAuthentication.swift */,
+			);
+			path = UserAuth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -601,12 +637,14 @@
 				4CBB94892C41015000EA1C40 /* LoginHeaderView.swift in Sources */,
 				4C8AB7E32C3FB34200E3B190 /* ContentView.swift in Sources */,
 				4CE1AA772C425C1D00FE5594 /* ContentProfileInfoView.swift in Sources */,
+				4CFF0EA52C65DE5300C04302 /* UserAuthentication.swift in Sources */,
 				4CB8805E2C4E44B5008C1605 /* ExtraContainer.swift in Sources */,
 				4CDC571D2C57DF5D0042855E /* PostCommentsView.swift in Sources */,
 				4CBB948F2C4101D100EA1C40 /* SignInInputView.swift in Sources */,
 				4CDE08692C551CC800E2A783 /* Post.swift in Sources */,
 				4CE1AA8F2C4260B400FE5594 /* PostEngagementView.swift in Sources */,
 				4CBB948B2C41017D00EA1C40 /* NavAndActionsView.swift in Sources */,
+				4C05084F2C5A2A6900A6DFBE /* ExplorePostDetailedView.swift in Sources */,
 				4CDC57182C57D49A0042855E /* OwnPostDetailedView.swift in Sources */,
 				4CA480452C4D49F800874D20 /* LinksContainerView.swift in Sources */,
 				4CBB949C2C41494600EA1C40 /* SignInPromptView.swift in Sources */,
@@ -615,6 +653,7 @@
 				4CE1AA672C424FF200FE5594 /* ProfileView.swift in Sources */,
 				4CE1AA912C42CBD600FE5594 /* ExploreView.swift in Sources */,
 				4CDE08652C54F79100E2A783 /* Color.swift in Sources */,
+				4C05084A2C5924F800A6DFBE /* Test.swift in Sources */,
 				4CBB948D2C4101A600EA1C40 /* RegistrationLinkView.swift in Sources */,
 				4CDC5C752C47A2E50083F590 /* FollowerDataView.swift in Sources */,
 				4CBB94962C41487B00EA1C40 /* InputFieldView.swift in Sources */,
@@ -625,6 +664,7 @@
 				4C0508482C58866500A6DFBE /* CommentInputView.swift in Sources */,
 				4CBB94912C41472400EA1C40 /* RegistrationView.swift in Sources */,
 				4CBB94982C41490F00EA1C40 /* RegistrationFormView.swift in Sources */,
+				4C05084D2C59F12400A6DFBE /* ExplorePost.swift in Sources */,
 				4CDC5C772C47A5160083F590 /* ContentFilterTabBarWrapper.swift in Sources */,
 				4CE1AA652C42410300FE5594 /* ProfileHeader.swift in Sources */,
 			);

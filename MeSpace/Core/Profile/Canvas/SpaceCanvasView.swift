@@ -17,9 +17,8 @@ struct SpaceCanvasView: View {
                 .ignoresSafeArea()
                 .zIndex(0)
             
-//            Color(hex: 0x9fbae0)
-//                .ignoresSafeArea()
-//            
+
+           
             ScrollView {
                 VStack(spacing: 16) {
                     SpaceContainer()
@@ -28,9 +27,6 @@ struct SpaceCanvasView: View {
                         HStack(spacing: 12) {
                             LinksContainerView()
                                 .frame(width: (geometry.size.width - 12) / 2)
-                            
-//                            LinksContainerView()
-//                                .frame(width: (geometry.size.width - 12) / 2)
                         }
                     }
                     .frame(height: 80)
@@ -152,14 +148,14 @@ struct SpaceCanvasView: View {
                         
                         
                         Spacer()
-                        Spacer()
                     }
-                    .frame(height: 80)
+//                    .frame(height: 80)
         
                     
                     Spacer()
                 }
                 .padding(16)
+                .frame(height: 120)
                
             }
             .frame(maxHeight: 90)

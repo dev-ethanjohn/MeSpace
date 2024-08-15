@@ -16,7 +16,7 @@ struct BottomSheetDragGestureModifier: ViewModifier {
     
     private func handleDragChange(_ value: DragGesture.Value) {
         withAnimation(.spring()) {
-            let maxOffset = reader.frame(in: .global).height * 0.15
+            let maxOffset = reader.frame(in: .global).height * 0.1
             let minOffset = -reader.frame(in: .global).height * 0.05 //adds a slight bounce
             
             offset = min(maxOffset, max(minOffset, -value.translation.height + lastDragValue))
@@ -25,7 +25,7 @@ struct BottomSheetDragGestureModifier: ViewModifier {
     
     private func handleDragEnd(_ value: DragGesture.Value) {
         withAnimation(.spring()) {
-            let maxOffset = reader.frame(in: .global).height * 0.15
+            let maxOffset = reader.frame(in: .global).height * 0.1
             let minOffset = 0.0
             
             offset = min(maxOffset, max(minOffset, -value.translation.height + lastDragValue))

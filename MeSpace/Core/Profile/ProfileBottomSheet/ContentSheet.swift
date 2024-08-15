@@ -36,8 +36,8 @@ struct ContentSheet: View {
                                 scrollToTop: $scrollToTop
                             ) {
                                 VStack {
-                                    WaterfallGrid(items: $posts, columns: columns, spacing: spacing) { $post in
-                                        PostView(post: $post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
+                                    WaterfallGrid(items: posts, columns: columns, spacing: spacing) { post in
+                                        PostView(post: post, width: (geometry.size.width - spacing * CGFloat(columns + 1)) / CGFloat(columns))
                                             .matchedGeometryEffect(id: post.id, in: animation)
                                             .onTapGesture {
                                                 selectedPost = post
@@ -201,18 +201,24 @@ struct CustomScrollView<Content: View>: View {
 }
 
 struct WaterfallGrid<Item: Identifiable, Content: View>: View {
-    let items: Binding<[Item]>
+    let items: [Item]
     let columns: Int
     let spacing: CGFloat
-    let content: (Binding<Item>) -> Content
+    let content: (Item) -> Content
+    
+    init(items: [Item], columns: Int, spacing: CGFloat, @ViewBuilder content: @escaping (Item) -> Content) {
+        self.items = items
+        self.columns = columns
+        self.spacing = spacing
+        self.content = content
+    }
     
     var body: some View {
-        
         HStack(alignment: .top, spacing: spacing) {
             ForEach(0..<columns, id: \.self) { column in
                 LazyVStack(spacing: spacing) {
-                    ForEach(Array(items.wrappedValue.enumerated().filter { $0.offset % columns == column }), id: \.element.id) { index, _ in
-                        content(items[index])
+                    ForEach(Array(items.enumerated().filter { $0.offset % columns == column }), id: \.element.id) { _, item in
+                        content(item)
                     }
                 }
             }
